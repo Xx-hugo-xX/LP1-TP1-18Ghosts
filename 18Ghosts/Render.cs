@@ -5,7 +5,7 @@ using System.Text;
 namespace _18Ghosts
 {
         class Render
-    {
+        {
             //Método que demonstra quais os fantasmas que cada jogador tem,        
             //exemplo:
 
@@ -27,7 +27,8 @@ namespace _18Ghosts
             /*Turno: P1
             */
 
-            //Método que apresenta a prioridade dos fantasmas em combate, exemplo:
+            //Método que apresenta a prioridade dos fantasmas em combate,
+            //exemplo:
 
             /*R -> G -> B -> R
             * 
@@ -38,6 +39,13 @@ namespace _18Ghosts
             * B --- G
             * 
             */
+
+            //UNICODE
+            //poderao dar jeito os seguintes símbolos:
+            // U+142F
+            // U+1431
+            // U+1433
+            // U+1438
 
         }
 }

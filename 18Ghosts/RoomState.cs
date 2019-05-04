@@ -4,8 +4,8 @@ using System.Text;
 
 namespace _18Ghosts
 {
-    class State // Diz o estado do jogo no momento
+    class RoomState // Diz o estado do jogo no momento
     {
-        public enum EstadoJogo { Undecided, P1, P2};
+        public enum StateBoard { Undecided, P1, P2};
     }
 }

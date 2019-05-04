@@ -6,7 +6,7 @@ namespace _18Ghosts
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
         }
     }
 }

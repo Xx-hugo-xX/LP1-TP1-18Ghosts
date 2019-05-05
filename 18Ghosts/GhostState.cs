@@ -6,6 +6,6 @@ namespace _18Ghosts
 {
     class GhostState
     {
-        public enum EstadoDosFantasmas { Inside, Runaway, Locked};
+        public enum EstadoDosFantasmas {Inside, Runaway, Locked};
     }
 }

@@ -6,5 +6,23 @@ namespace _18Ghosts
 {
     class Ghosts
     {
+        //Variáveis de instância
+        public ConsoleColor color;
+        public Position position;
+        public GhostState.EstadoDosFantasmas ghostState;
+        
+        
+
+
+        public Ghosts(ConsoleColor color, Position position)
+        {
+            this.color = color;
+            this.position = position;
+            ghostState = GhostState.EstadoDosFantasmas.Inside;
+        }
+
+
+
+
     }
 }

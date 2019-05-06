@@ -22,6 +22,8 @@ namespace _18Ghosts
         public void movement()
         {
             //MovementCondition();
+
+
         }
 
     }

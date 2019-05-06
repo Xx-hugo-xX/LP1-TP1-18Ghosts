@@ -19,11 +19,59 @@ namespace _18Ghosts
             ghostState = GhostState.EstadoDosFantasmas.Inside;
         }
 
-        public void Fight(Ghost g1, Ghost g2)
+        public void Fight(Ghost g1, Ghost g2, Position wantedPosition)
         {
+            Ghost winner, loser;
+
+
+            //Condições para o fantasma 1 ganhar
+            if(g1.color == ConsoleColor.Red &&
+                g2.color == ConsoleColor.Blue)
+            {
+                winner = g1;
+                loser = g2;
+            }
+
+            else if(g1.color == ConsoleColor.Blue &&
+                g2.color == ConsoleColor.Yellow)
+            {
+                winner = g1;
+                loser = g2;
+            }
+
+            else if(g1.color == ConsoleColor.Yellow &&
+                g2.color == ConsoleColor.Red)
+            {
+                winner = g1;
+                loser = g2;
+            }
+
+
+            //Condições para o fantasma 2 ganhar
+            else if (g2.color == ConsoleColor.Red &&
+                g1.color == ConsoleColor.Blue)
+            {
+                winner = g2;
+                loser = g1;
+            }
+
+            else if (g2.color == ConsoleColor.Blue &&
+                g1.color == ConsoleColor.Yellow)
+            {
+                winner = g2;
+                loser = g1;
+            }
+
+            else
+            {
+                winner = g2;
+                loser = g1;
+            }
+
+            loser.ghostState = GhostState.EstadoDosFantasmas.Locked;
+            loser.position = new Position(6, 6);
+            winner.position = wantedPosition;
 
         }
-
-
     }
 }

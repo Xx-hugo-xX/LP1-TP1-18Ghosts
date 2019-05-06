@@ -19,6 +19,27 @@ namespace _18Ghosts
             ghostState = GhostState.EstadoDosFantasmas.Inside;
         }
 
+
+
+
+        public void Movement()
+        {
+            //Ask what ghost to move
+
+            //What space to move to
+
+            //MovementCondition(Ghost movingGhost, wantedPosition);
+
+            //If space has a ghost already, call fight method
+
+            //Else if space has a mirror, call mirrorMovement from Mirror class
+            
+            //Else, move ghost to wantedPosition
+        }
+
+
+
+
         public void Fight(Ghost g1, Ghost g2, Position wantedPosition)
         {
             Ghost winner, loser;

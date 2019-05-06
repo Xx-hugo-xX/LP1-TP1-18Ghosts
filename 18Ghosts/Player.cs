@@ -18,5 +18,11 @@ namespace _18Ghosts
         public Ghosts y2 = new Ghosts(ConsoleColor.Yellow, new Position(0, 0));
         public Ghosts y3 = new Ghosts(ConsoleColor.Yellow, new Position(0, 0));
 
+
+        public void movement()
+        {
+            //MovementCondition();
+        }
+
     }
 }

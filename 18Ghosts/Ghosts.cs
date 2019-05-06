@@ -10,11 +10,8 @@ namespace _18Ghosts
         public ConsoleColor color;
         public Position position;
         public GhostState.EstadoDosFantasmas ghostState;
-<<<<<<< HEAD              
-=======
->>>>>>> GhostClass
 
-
+        //Método Construtor
         public Ghosts(ConsoleColor color, Position position)
         {
             this.color = color;

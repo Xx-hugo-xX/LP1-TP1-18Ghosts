@@ -6,6 +6,7 @@ namespace _18Ghosts
 {
     class Player
     {
+        public Ghost[] ghostList;
         public Player()
         {
             //Create and initialize an array of ghosts for each player

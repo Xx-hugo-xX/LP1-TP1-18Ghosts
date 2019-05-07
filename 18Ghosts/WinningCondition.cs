@@ -29,7 +29,7 @@ namespace _18Ghosts
         {
             bool won = false;
             
-            Ghosts[] ghostRunAway = new Ghosts[9]; // creates a new array that 
+            Ghost[] ghostRunAway = new Ghost[9]; // creates a new array that 
                                                 //saves the ghost who run away
 
             int runAwayCounter = 0;

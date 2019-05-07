@@ -10,9 +10,6 @@ namespace _18Ghosts
         public ConsoleColor color;
         public Position position;
         public GhostState.EstadoDosFantasmas ghostState;
-<<<<<<< HEAD              
-=======
->>>>>>> GhostClass
 
 
         public Ghosts(ConsoleColor color, Position position)

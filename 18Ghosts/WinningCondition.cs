@@ -15,18 +15,20 @@ namespace _18Ghosts
         // }
         //}
 
-        public State Check(Board board)
+        public RoomState Check(Player p1, Player p2 )
         {
-            if (CheckForWin(ghost, State.P1)) return State.P1;
-            if (CheckForWin(ghost, State.P2)) return State.P2;
+            if (CheckForWin(p1)) return RoomState.P1;
+            if (CheckForWin(p2)) return RoomState.P2;
 
-            return State.Undecided; //Ainda niguem ganhou e o estado está 
+            return RoomState.Undecided; //Ainda niguem ganhou e o estado está 
             //undecided
         }
 
 
-        public int CheckforWin(Player player)
+        public bool CheckForWin(Player player)
         {
+            bool won = false;
+            
             Ghosts[] ghostRunAway = new Ghosts[9]; // creates a new array that 
                                                 //saves the ghost who run away
 
@@ -44,12 +46,11 @@ namespace _18Ghosts
                 }
             }
 
+            //verifying color 
+            bool redOut = false;
+            bool blueOut = false;
+            bool yellowOut = false;
 
-            if (Player(ghost, new Ghosts[]
-            {
-                new Out (3)
-                return true;
-            }
         }
     }
 }

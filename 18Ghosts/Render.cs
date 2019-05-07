@@ -55,6 +55,10 @@ namespace _18Ghosts
         // U+1438
 
         // Method that draws the map and Player's Ghosts
+        private void DisplayMap()
+        {
 
+        }
+    
     }
 }

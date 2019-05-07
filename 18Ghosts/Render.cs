@@ -15,13 +15,14 @@ namespace _18Ghosts
             */
 
         // Method that shows the number of active ghosts for both Players
+        //(ghosts in the board)
         private void ActvGhosts(Player p1, Player p2) {
 
             Console.WriteLine("Active Ghosts:");
-            //Shows the number of Player1's active ghosts (ghosts in the board)
+            //Shows the number of Player1's active ghosts
             Console.WriteLine("Player1: R({})" + " / " + "Y({})" + " / " 
                 + "B({})");
-            //Shows the number of Player2's active ghosts (ghosts in the board)
+            //Shows the number of Player2's active ghosts
             Console.WriteLine("Player2: R({})" + " / " + "Y({})" + " / "
                 + "B({})");
 
@@ -34,6 +35,21 @@ namespace _18Ghosts
             *  Player1: R(nº) / G(nº) / B(nº)
             *  Player2: R(nº) / G(nº) / B(nº)
             */
+
+        // Method that shows the number of both Players captured ghosts (ghosts
+        //in the catacombs)
+        private void CapturedGhosts(Player p1, Player p2)
+        {
+
+            Console.WriteLine("Active Ghosts:");
+            //Shows the number of Player1's captured ghosts
+            Console.WriteLine("Player1: R({})" + " / " + "Y({})" + " / "
+                + "B({})");
+            //Shows the number of Player2's captured ghosts
+            Console.WriteLine("Player2: R({})" + " / " + "Y({})" + " / "
+                + "B({})");
+
+        }
 
         //Método que demonstra de quem é o turno, exemplo:
 

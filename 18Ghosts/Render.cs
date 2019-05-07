@@ -6,17 +6,11 @@ namespace _18Ghosts
 {
     class Render
     {
-        //Método que demonstra quais os fantasmas que cada jogador tem,        
-        //exemplo:
-
-        /*Fantasmas ativos:
-            *  Player1: R(nº) / Y(nº) / B(nº)
-            *  Player2: R(nº) / Y(nº) / B(nº)
-            */
 
         // Method that shows the number of active ghosts for both Players
         //(ghosts in the board)
-        private void ActvGhosts(Player p1, Player p2) {
+        private void ActvGhosts(Player p1, Player p2)
+        {
 
             Console.WriteLine("Active Ghosts:");
             //Shows the number of Player1's active ghosts
@@ -25,14 +19,6 @@ namespace _18Ghosts
             Console.WriteLine($"Player2: R({}) / Y({}) / B({})");
 
         }
-
-        //Método que mostra quais os fantasmas - de cada jogador - que se
-        //encontram nas catacumbas, exemplo:
-
-        /*Catacumbas:
-            *  Player1: R(nº) / G(nº) / B(nº)
-            *  Player2: R(nº) / G(nº) / B(nº)
-            */
 
         // Method that shows the number of both Players captured ghosts (ghosts
         //in the catacombs)
@@ -47,11 +33,6 @@ namespace _18Ghosts
 
         }
 
-        //Método que demonstra de quem é o turno, exemplo:
-
-        /*Turno: P1
-        */
-
         // Method that shows who's Players turn it is to play
         private void PlayerTurn()
         {
@@ -59,18 +40,6 @@ namespace _18Ghosts
             Console.WriteLine($"Turn: {}");
         }
 
-        //Método que apresenta a prioridade dos fantasmas em combate,
-        //exemplo:
-
-        /*R -> B -> Y -> R
-        * 
-        * ou:
-        *
-        *    R
-        *  /   \
-        * B --- Y
-        * 
-        */
         // Method that shows the players which Ghost (color) is superior to
         //which
         private void BattleRules()

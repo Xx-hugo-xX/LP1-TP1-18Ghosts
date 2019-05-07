@@ -17,13 +17,16 @@ namespace _18Ghosts
             currentTurn = state.P1;
         }
 
+        // Getter function for the "state" variable
+        public roomState GetState(Position position)
+        {
+            return state[position.Row, position.Column];
+        }
+
         // Setter function for the "state" variable
         public bool SetState(Position position, roomState newState)
         {
-            if (newState != currentTurn) return false;
-            if (state[position.Row, position.Column] != roomState.Undecided)
-                return false;
-
+            // Defines new value for desired position and calls ChangeTurn()
             state[position.Row, position.Column] = newState;
             ChangeTurn();
             return true;

@@ -20,11 +20,9 @@ namespace _18Ghosts
 
             Console.WriteLine("Active Ghosts:");
             //Shows the number of Player1's active ghosts
-            Console.WriteLine("Player1: R({})" + " / " + "Y({})" + " / " 
-                + "B({})");
+            Console.WriteLine($"Player1: R({}) / Y({}) / B({})");
             //Shows the number of Player2's active ghosts
-            Console.WriteLine("Player2: R({})" + " / " + "Y({})" + " / "
-                + "B({})");
+            Console.WriteLine($"Player2: R({}) / Y({}) / B({})");
 
         }
 
@@ -43,11 +41,9 @@ namespace _18Ghosts
 
             Console.WriteLine("Active Ghosts:");
             //Shows the number of Player1's captured ghosts
-            Console.WriteLine("Player1: R({})" + " / " + "Y({})" + " / "
-                + "B({})");
+            Console.WriteLine($"Player1: R({}) / Y({}) / B({})");
             //Shows the number of Player2's captured ghosts
-            Console.WriteLine("Player2: R({})" + " / " + "Y({})" + " / "
-                + "B({})");
+            Console.WriteLine($"Player2: R({}) / Y({}) / B({})");
 
         }
 
@@ -55,6 +51,11 @@ namespace _18Ghosts
 
         /*Turno: P1
         */
+
+        private void PlayerTurn()
+        {
+            Console.WriteLine($"Turn: {}");
+        }
 
         //Método que apresenta a prioridade dos fantasmas em combate,
         //exemplo:

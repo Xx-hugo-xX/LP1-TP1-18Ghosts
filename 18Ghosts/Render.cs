@@ -60,15 +60,20 @@ namespace _18Ghosts
         //Método que apresenta a prioridade dos fantasmas em combate,
         //exemplo:
 
-        /*R -> G -> B -> R
+        /*R -> B -> Y -> R
         * 
         * ou:
         *
         *    R
         *  /   \
-        * B --- G
+        * B --- Y
         * 
         */
+
+        private void BattleRules()
+        {
+            Console.WriteLine("R -> B -> Y -> R");
+        }
 
         //UNICODE
         //poderao dar jeito os seguintes símbolos:

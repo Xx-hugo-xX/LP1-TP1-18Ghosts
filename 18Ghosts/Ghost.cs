@@ -9,7 +9,7 @@ namespace _18Ghosts
         //Variáveis de instância
         public ConsoleColor color;
         public Position position;
-        public GhostState ghostState;
+        public GhostState ghostState { get; set; }
 
         //Método Construtor
         public Ghost(ConsoleColor color, Position position)
@@ -18,9 +18,7 @@ namespace _18Ghosts
             this.position = position;
             ghostState = GhostState.Inside;
         }
-
-
-
+    
 
         public void Movement()
         {
@@ -45,7 +43,7 @@ namespace _18Ghosts
             Ghost winner, loser;
 
 
-            //Condições para o fantasma 1 ganhar
+            //Condition for the ghost g1 to win
             if(g1.color == ConsoleColor.Red &&
                 g2.color == ConsoleColor.Blue)
             {
@@ -68,7 +66,7 @@ namespace _18Ghosts
             }
 
 
-            //Condições para o fantasma 2 ganhar
+            //Condition for the ghost g2 to win
             else if (g2.color == ConsoleColor.Red &&
                 g1.color == ConsoleColor.Blue)
             {
@@ -89,7 +87,10 @@ namespace _18Ghosts
                 loser = g1;
             }
 
-            loser.ghostState = GhostState.EstadoDosFantasmas.Locked;
+            /*Set states and postions of the ghosts, based on
+            who won and who lost */
+
+            loser.ghostState = GhostState.Locked;
             loser.position = new Position(6, 6);
             winner.position = wantedPosition;
 

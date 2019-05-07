@@ -36,7 +36,7 @@ namespace _18Ghosts
 
             for (int i = 0; i < 9; i++)
             {
-                GhostState state = player.ghostList[i].ghostState { get; };
+                GhostState state = player.ghostList[i].ghostState;
                 
                 //adding to the array the ghosts 
                 if (state == GhostState.Runaway) 

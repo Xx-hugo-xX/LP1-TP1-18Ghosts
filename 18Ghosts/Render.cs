@@ -55,10 +55,96 @@ namespace _18Ghosts
         // U+1438
 
         // Method that draws the map and Player's Ghosts
-        private void DisplayMap()
+        private void DrawMap()
         {
+            int rows = 5;
+            int columns = 5;
+            int lines = 9;
+            int space = 0;
 
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < lines; j++)
+                {
+                    for (int k = 0; k < columns; k++)
+                    {
+                        space = i * 5 + k;
+
+                        switch (j)
+                        {
+                            case 0:
+                                Console.Write("+----------------");
+                                if (space == 4 || space == 9 || space == 14 || space == 19 || space == 24)
+                                {
+                                    Console.Write("+");
+                                }
+                                break;
+                            case 1:
+                                Console.Write("|                ");
+                                if (space == 4 || space == 9 || space == 14 ||
+                                    space == 19 || space == 24)
+                                {
+                                    Console.Write("|");
+                                }
+                                break;
+                            case 2:
+                                Console.Write("|                ");
+                                if (space == 4 || space == 9 || space == 14 ||
+                                    space == 19 || space == 24)
+                                {
+                                    Console.Write("|");
+                                }
+                                break;
+                            case 3:
+                                Console.Write("|                ");
+                                if (space == 4 || space == 9 || space == 14 ||
+                                    space == 19 || space == 24)
+                                {
+                                    Console.Write("|");
+                                }
+                                break;
+                            case 4:
+                                Console.Write("|                ");
+                                if (space == 4 || space == 9 || space == 14 ||
+                                    space == 19 || space == 24)
+                                {
+                                    Console.Write("|");
+                                }
+                                break;
+                            case 5:
+                                Console.Write("|                ");
+                                if (space == 4 || space == 9 || space == 14 ||
+                                    space == 19 || space == 24)
+                                {
+                                    Console.Write("|");
+                                }
+                                break;
+                            case 6:
+                                Console.Write("|                ");
+                                if (space == 4 || space == 9 || space == 14 ||
+                                    space == 19 || space == 24)
+                                {
+                                    Console.Write("|");
+                                }
+                                break;
+                            case 7:
+                                Console.Write("+----------------");
+                                if (space == 4 || space == 9 || space == 14 || space == 19 || space == 24)
+                                {
+                                    Console.Write("+");
+                                }
+                                break;
+                        }
+                    }
+                    Console.Write("\n");
+                }
+
+            }
+            Console.Write("+----------------+----------------+----------------+" +
+            "----------------+----------------+\n\n");
         }
+    }
     
     }
 }

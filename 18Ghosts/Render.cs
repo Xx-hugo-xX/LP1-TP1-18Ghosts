@@ -52,8 +52,10 @@ namespace _18Ghosts
         /*Turno: P1
         */
 
+        // Method that shows who's Players turn it is to play
         private void PlayerTurn()
         {
+            //Shows wich Player's turn it is to play
             Console.WriteLine($"Turn: {}");
         }
 
@@ -69,7 +71,8 @@ namespace _18Ghosts
         * B --- Y
         * 
         */
-
+        // Method that shows the players which Ghost (color) is superior to
+        //which
         private void BattleRules()
         {
             Console.WriteLine("R -> B -> Y -> R");

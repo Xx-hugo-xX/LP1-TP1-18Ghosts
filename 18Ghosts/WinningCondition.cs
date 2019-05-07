@@ -6,33 +6,51 @@ namespace _18Ghosts
 {
     class WinningCondition
     {
-     //se jogo estiver no modo fast tem o jogador tem de eliminar 3 fantasmas
+        //se jogo estiver no modo fast tem o jogador tem de eliminar 3 fantasmas
         //public void modo (string[] args)
-       // {
-           // if jogo == fast //criar fast
-           // {
-           //     Check();
-           // }
+        // {
+        // if jogo == fast //criar fast
+        // {
+        //     Check();
+        // }
         //}
 
-        public State Check(Board board)
+        public RoomState Check(Player p1, Player p2 )
         {
-            if (CheckForWin(ghost, State.P1)) return State.P1;
-            if (CheckForWin(ghost, State.P2)) return State.P2;
-            return State.Undecided; //Ainda niguem ganhou e o estado está 
+            if (CheckForWin(p1)) return RoomState.P1;
+            if (CheckForWin(p2)) return RoomState.P2;
+
+            return RoomState.Undecided; //Ainda niguem ganhou e o estado está 
             //undecided
         }
 
 
-        public bool CheckforWin(State, ghost)
+        public bool CheckForWin(Player player)
         {
-            // se no stat ghosts, 3 estiverem no estado out então o 
-            //jogador ganha
-            if (State(ghost, new Out[]
+            bool won = false;
+            
+            Ghosts[] ghostRunAway = new Ghosts[9]; // creates a new array that 
+                                                //saves the ghost who run away
+
+            int runAwayCounter = 0;
+
+            for (int i = 0; i < 9; i++)
             {
-                new Out (3)
-                return true;
+                GhostState state = player.ghostList[i].ghostState { get; };
+                
+                //adding to the array the ghosts 
+                if (state == GhostState.Runaway) 
+                {
+                    ghostRunAway[runAwayCounter] = player.ghostList[i];
+                    runAwayCounter++;
+                }
             }
+
+            //verifying color 
+            bool redOut = false;
+            bool blueOut = false;
+            bool yellowOut = false;
+
         }
     }
 }

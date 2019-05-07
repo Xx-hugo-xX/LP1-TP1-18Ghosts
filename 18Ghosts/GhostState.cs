@@ -4,8 +4,7 @@ using System.Text;
 
 namespace _18Ghosts
 {
-    class GhostState
-    {
-        public enum EstadoDosFantasmas {Inside, Runaway, Locked};
-    }
+    //tells the state of the ghosts (On the board, Runway from the castle, 
+    //locked in the dungeon)
+        public enum GhostState {Inside, Runaway, Locked};
 }

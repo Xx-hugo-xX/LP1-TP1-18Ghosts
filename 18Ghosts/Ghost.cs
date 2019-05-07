@@ -7,13 +7,15 @@ namespace _18Ghosts
     class Ghost
     {
         //Variáveis de instância
+        public string name;
         public ConsoleColor color;
         public Position position;
         public GhostState ghostState { get; set; }
 
         //Método Construtor
-        public Ghost(ConsoleColor color, Position position)
+        public Ghost(string name, ConsoleColor color, Position position)
         {
+            this.name = name;
             this.color = color;
             this.position = position;
             ghostState = GhostState.Inside;

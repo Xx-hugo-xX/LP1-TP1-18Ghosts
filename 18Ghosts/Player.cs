@@ -15,15 +15,15 @@ namespace _18Ghosts
 
 
             //Define every ghost a player has from the beginning
-            Ghost r1 = new Ghost(ConsoleColor.Red, new Position(0, 0));
-            Ghost r2 = new Ghost(ConsoleColor.Red, new Position(0, 0));
-            Ghost r3 = new Ghost(ConsoleColor.Red, new Position(0, 0));
-            Ghost b1 = new Ghost(ConsoleColor.Blue, new Position(0, 0));
-            Ghost b2 = new Ghost(ConsoleColor.Blue, new Position(0, 0));
-            Ghost b3 = new Ghost(ConsoleColor.Blue, new Position(0, 0));
-            Ghost y1 = new Ghost(ConsoleColor.Yellow, new Position(0, 0));
-            Ghost y2 = new Ghost(ConsoleColor.Yellow, new Position(0, 0));
-            Ghost y3 = new Ghost(ConsoleColor.Yellow, new Position(0, 0));
+            Ghost r1 = new Ghost("r1", ConsoleColor.Red, new Position(0, 0));
+            Ghost r2 = new Ghost("r2", ConsoleColor.Red, new Position(0, 0));
+            Ghost r3 = new Ghost("r3", ConsoleColor.Red, new Position(0, 0));
+            Ghost b1 = new Ghost("b1", ConsoleColor.Blue, new Position(0, 0));
+            Ghost b2 = new Ghost("b2", ConsoleColor.Blue, new Position(0, 0));
+            Ghost b3 = new Ghost("b3", ConsoleColor.Blue, new Position(0, 0));
+            Ghost y1 = new Ghost("y1", ConsoleColor.Yellow, new Position(0, 0));
+            Ghost y2 = new Ghost("y2", ConsoleColor.Yellow, new Position(0, 0));
+            Ghost y3 = new Ghost("y3", ConsoleColor.Yellow, new Position(0, 0));
 
             //Add ghosts to the array
             ghostList[0] = r1;

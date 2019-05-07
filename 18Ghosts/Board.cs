@@ -6,13 +6,20 @@ namespace _18Ghosts
 {
     class Board
     {
-        public roomState CurrentTurn { get; private set;}
+        private roomState[,] state;
+        public roomState currentTurn { get; private set;}
+
+        public Board()
+        {
+            state = new roomState[5, 5];
+            currentTurn = state.P1;
+        }
 
         // In this method, its defined wich player's turn it is to play
         private void ChangeTurn()
         {
-            if (CurrentTurn == roomState.P1) CurrentTurn = roomState.P2;
-            else CurrentTurn = roomState.P1;
+            if (currentTurn == roomState.P1) currentTurn = roomState.P2;
+            else currentTurn = roomState.P1;
         }
     }
 }

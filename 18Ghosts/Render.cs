@@ -10,9 +10,22 @@ namespace _18Ghosts
         //exemplo:
 
         /*Fantasmas ativos:
-            *  Player1: R(nº) / G(nº) / B(nº)
-            *  Player2: R(nº) / G(nº) / B(nº)
+            *  Player1: R(nº) / Y(nº) / B(nº)
+            *  Player2: R(nº) / Y(nº) / B(nº)
             */
+
+        // Method that shows the number of active ghosts for both Players
+        private void ActvGhosts(Player p1, Player p2) {
+
+            Console.WriteLine("Active Ghosts:");
+            //Shows the number of Player1's active ghosts (ghosts in the board)
+            Console.WriteLine("Player1: R({})" + " / " + "Y({})" + " / " 
+                + "B({})");
+            //Shows the number of Player2's active ghosts (ghosts in the board)
+            Console.WriteLine("Player2: R({})" + " / " + "Y({})" + " / "
+                + "B({})");
+
+        }
 
         //Método que mostra quais os fantasmas - de cada jogador - que se
         //encontram nas catacumbas, exemplo:

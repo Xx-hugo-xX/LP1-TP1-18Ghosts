@@ -7,9 +7,9 @@ namespace _18Ghosts
     class Ghost
     {
         //Variáveis de instância
-        public string name;
-        public ConsoleColor color;
-        public Position position;
+        public string name { get; }
+        public ConsoleColor color { get; }
+        public Position position { get; set; }
         public GhostState ghostState { get; set; }
 
         //Método Construtor
@@ -20,25 +20,6 @@ namespace _18Ghosts
             this.position = position;
             ghostState = GhostState.Inside;
         }
-    
-
-        public void Movement()
-        {
-            //Ask what ghost to move
-
-            //What space to move to
-
-            //MovementCondition(Ghost movingGhost, wantedPosition);
-
-            //If space has a ghost already, call fight method
-
-            //Else if space has a mirror, call mirrorMovement from Mirror class
-            
-            //Else, move ghost to wantedPosition
-        }
-
-
-
 
         public void Fight(Ghost g1, Ghost g2, Position wantedPosition)
         {

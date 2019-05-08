@@ -12,19 +12,22 @@ namespace _18Ghosts
         //varios if
         char symbol;
         ConsoleColor color;
-        Position orientation;
+        PortalState orientation;
+        public Position portalPosition;
+        public Position teleportPosition;
 
         //constructer method create a portal
-        public Portals (char symbol, ConsoleColor color, Position position, Position orientation)
+        public Portals (char symbol, ConsoleColor color, Position position,
+            PortalState orientation)
         {
             this.symbol = symbol;
             this.color = color;
-            this.position = position;
+            portalPosition = position;
             this.orientation = orientation;
 
         }
 
-        public PortalRotation (Ghost ghost) //rotate the portals door
+        public void PortalRotation (Ghost ghost) //rotate the portals door
         {
             if (orientation == PortalState.North)
             {
@@ -44,7 +47,7 @@ namespace _18Ghosts
             }
         }
 
-        public KickGhost (Ghost ghost) //send ghost to the out enum
+        public void KickGhost (Player p1, Player p2) //send ghost to the out enum
         {
             if (orientation == PortalState.North)
             {

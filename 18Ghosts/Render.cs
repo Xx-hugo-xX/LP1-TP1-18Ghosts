@@ -9,40 +9,40 @@ namespace _18Ghosts
 
         // Method that shows the number of active Ghosts for both Players
         //(Ghosts in the board).
-        private void ActvGhosts(Player p1, Player p2)
+        public void ActvGhosts(Player p1, Player p2)
         {
 
-            Console.WriteLine("Active Ghosts:");
+            //Console.WriteLine("Active Ghosts:");
             //Shows the number of Player1's active Ghosts.
-            Console.WriteLine($"Player1: R({}) / Y({}) / B({})");
+            //Console.WriteLine($"Player1: R({}) / Y({}) / B({})");
             //Shows the number of Player2's active Ghosts.
-            Console.WriteLine($"Player2: R({}) / Y({}) / B({})");
+            //Console.WriteLine($"Player2: R({}) / Y({}) / B({})");
 
         }
 
         // Method that shows the number of both Players captured Ghosts (Ghosts
         //in the catacombs).
-        private void CapturedGhosts(Player p1, Player p2)
+        public void CapturedGhosts(Player p1, Player p2)
         {
 
-            Console.WriteLine("Active Ghosts:");
+            //Console.WriteLine("Active Ghosts:");
             //Shows the number of Player1's captured Ghosts.
-            Console.WriteLine($"Player1: R({}) / Y({}) / B({})");
+            //Console.WriteLine($"Player1: R({}) / Y({}) / B({})");
             //Shows the number of Player2's captured Ghosts.
-            Console.WriteLine($"Player2: R({}) / Y({}) / B({})");
+            //Console.WriteLine($"Player2: R({}) / Y({}) / B({})");
 
         }
 
         // Method that shows who's Players turn it is to play.
-        private void PlayerTurn()
+        public void PlayerTurn()
         {
             //Shows wich Player's turn it is to play.
-            Console.WriteLine($"Turn: {}");
+            //Console.WriteLine($"Turn: {}");
         }
 
         // Method that shows the players which Ghost (color) is superior to
         //which in combat.
-        private void BattleRules()
+        public void BattleRules()
         {
             Console.WriteLine("R -> B -> Y -> R");
         }
@@ -55,11 +55,11 @@ namespace _18Ghosts
         // U+1438
 
         // Method that draws the map and Player's Ghosts.
-        private void DrawMap()
+        public void DrawMap()
         {
             int rows = 5;
             int columns = 5;
-            int lines = 9;
+            int lines = 8;
             int space = 0;
 
 
@@ -167,11 +167,11 @@ namespace _18Ghosts
                                 //This row defines the bottom limit of the map
                                 //grid.
                             case 7:
-                                Console.Write("+----------------");
+                                Console.Write("|                ");
                                 if (space == 4 || space == 9 || space == 14 || 
                                     space == 19 || space == 24)
                                 {
-                                    Console.Write("+");
+                                    Console.Write("|");
                                 }
                                 break;
                         }
@@ -183,7 +183,5 @@ namespace _18Ghosts
             Console.Write("+----------------+----------------+----------------+" +
             "----------------+----------------+\n\n");
         }
-    }
-    
     }
 }

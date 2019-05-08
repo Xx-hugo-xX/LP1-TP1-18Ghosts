@@ -4,5 +4,6 @@ using System.Text;
 
 namespace _18Ghosts
 {
-    public enum RoomType {Red, Blue, Yellow, Portal, Mirror};
+    public enum RoomType {Red, Blue, Yellow, PortalRed, PortalBlue,
+        PortalYellow, Mirror};
 }

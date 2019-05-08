@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _18Ghosts
 {
-    class WinningCondition
+    class CheckforWin
     {
         //se jogo estiver no modo fast tem o jogador tem de eliminar 3 fantasmas
         //public void modo (string[] args)
@@ -51,6 +51,27 @@ namespace _18Ghosts
             bool blueOut = false;
             bool yellowOut = false;
 
+            for (int i = 0; i < runAwayCounter; i++)
+            {
+                if (ghostRunAway[i].color == ConsoleColor.Red)
+                {
+                    redOut = true;
+                   
+                }
+                else if (ghostRunAway[i].color == ConsoleColor.Blue)
+                {
+                    blueOut = true;
+                }
+                else if (ghostRunAway[i].color == ConsoleColor.Yellow)
+                {
+                    yellowOut = true;
+                }
+            }
+            if (redOut == true && blueOut == true && yellowOut == true)
+            {
+                won = true;
+            }
+            return won;
         }
     }
 }

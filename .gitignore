@@ -261,8 +261,8 @@ __pycache__/
 *.pyc
 
 #ignoring folder named 'DoxyFile'
-DoxyFile/
+/DoxyFile
 
 
 #ignoring folder named 'DoxyFileTrash'
-DoxyFileTrash/
+/DoxyFileTrash

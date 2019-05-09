@@ -24,7 +24,7 @@ namespace _18Ghosts
 
             /* Loops players ghostList and adds all ghosts that have "Locked"
             state to dungeonGhosts list */
-            for (int i = 0; i < dungeonCounter; i++)
+            for (int i = 0; i < 9; i++)
             {
                 if (currentPlayer.ghostList[i].ghostState == GhostState.Locked)
                 {

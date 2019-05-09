@@ -10,7 +10,7 @@ namespace _18Ghosts
 
             Player p1 = new Player();
             Player p2 = new Player();
-            p1.UpdateLists();
+
 
             Render render = new Render();
 
@@ -26,10 +26,7 @@ namespace _18Ghosts
 
             for (int i = 0; i < 9; i++)
             {
-                if (p1.ghostList[i].name != null)
-                {
-                    Console.WriteLine($"{p1.ghostList[i].name}");
-                }
+                Console.WriteLine(p1.ghostList[i].name);
             }
             
         }

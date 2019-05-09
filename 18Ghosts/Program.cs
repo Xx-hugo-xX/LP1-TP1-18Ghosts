@@ -8,20 +8,20 @@ namespace _18Ghosts
         {
             Board board = new Board();
 
-            CheckforWin winningCondition = new CheckforWin();
+            CheckforWin checkforWin = new CheckforWin();
+
+            GhostRespawn ghostRespawn = new GhostRespawn();
+
+            Movement movement = new Movement();
 
             Render render = new Render();
 
             Player p1 = new Player();
             Player p2 = new Player();
 
-            render.DrawMap();
- 
+            GameLoop gameLoop = new GameLoop();
 
-            Console.WriteLine($"{p1.R1.ghostState}");
-
-
-                
+            gameLoop.RunGameLoop(board, render, p1, p2, movement, ghostRespawn, checkforWin);
         }
     }
 }

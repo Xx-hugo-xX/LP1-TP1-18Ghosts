@@ -4,12 +4,9 @@ using System.Text;
 
 namespace _18Ghosts
 {
+    //Creates the portals and makes it possible for them to rotate
     class Portals
     {
-        // preciso 4 simbolo, mas e imprimido 1 de cada vez
-        // precisa de uma cor
-        // orientação é a casa para q esta a apontar
-        //varios if
         char symbol;
         ConsoleColor color;
         PortalState orientation;
@@ -27,7 +24,8 @@ namespace _18Ghosts
 
         }
 
-        public void PortalRotation (Ghost ghost) //rotate the portals door
+        //rotate the portals door
+        public void PortalRotation (Ghost ghost) 
         {
             if (orientation == PortalState.North)
             {
@@ -47,7 +45,8 @@ namespace _18Ghosts
             }
         }
 
-        public void KickGhost (Player p1, Player p2) //send ghost to the out enum
+        //send ghost to the out enum
+        public void KickGhost (Player p1, Player p2) 
         {
             if (orientation == PortalState.North)
             {

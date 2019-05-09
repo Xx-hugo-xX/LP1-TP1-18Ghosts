@@ -6,13 +6,13 @@ namespace _18Ghosts
 {
     class Ghost
     {
-        //Variáveis de instância
+        //Instance variables
         public string name { get; }
         public ConsoleColor color { get; }
         public Position position { get; set; }
         public GhostState ghostState { get; set; }
 
-        //Método Construtor
+        //Constructer Method
         public Ghost(string name, ConsoleColor color, Position position)
         {
             this.name = name;

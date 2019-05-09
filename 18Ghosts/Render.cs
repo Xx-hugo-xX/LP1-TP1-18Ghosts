@@ -13,7 +13,7 @@ namespace _18Ghosts
             EscapedGhosts(p1, p2);
             PlayerTurn(board);
             BattleRules();
-            DrawMap(board);
+            DrawMap(board, p1, p2);
         }
         // Method that shows the number of active Ghosts for both Players
         //(Ghosts in the board).
@@ -131,7 +131,7 @@ namespace _18Ghosts
 
 
         // Method that draws the map and Player's Ghosts.
-        public void DrawMap(Board board)
+        public void DrawMap(Board board, Player p1, Player p2)
         {
             int rows = 5;
             int columns = 5;
@@ -212,8 +212,11 @@ namespace _18Ghosts
                                 }
                                 break;
 
-                            case 3:
-                                Console.Write("|             ");
+                            case 3: 
+                                if (board.state[i, k] == RoomState.P1)
+                                    Console.Write("|      P1     ");
+                                else Console.Write("|      P2     ");
+
                                 if (space == 4 || space == 9 || space == 14 ||
                                     space == 19 || space == 24)
                                 {
@@ -233,6 +236,20 @@ namespace _18Ghosts
                                 break;
 
                             case 5:
+                                if (board.state[i, k] == RoomState.P1)
+                                {
+                                    for (int l = 0; l < p1.insideGhosts.Length;
+                                    l++)
+                                    {
+                                        if (p1.insideGhosts[l].position.Row
+                                            == i && p1.insideGhosts[l].
+                                            position.Column == k)
+                                        {
+
+                                        }
+                                    }
+                                }
+
                                 Console.Write("|             ");
                                 if (space == 4 || space == 9 || space == 14 ||
                                     space == 19 || space == 24)

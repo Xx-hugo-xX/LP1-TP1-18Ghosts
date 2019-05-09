@@ -6,7 +6,14 @@ namespace _18Ghosts
 {
     class Render
     {
-
+        public void Rendering(Board board, Player p1, Player p2)
+        {
+            ActvGhosts(p1, p2);
+            CapturedGhosts(p1, p2);
+            PlayerTurn();
+            BattleRules();
+            DrawMap(board);
+        }
         // Method that shows the number of active Ghosts for both Players
         //(Ghosts in the board).
         public void ActvGhosts(Player p1, Player p2)
@@ -55,7 +62,7 @@ namespace _18Ghosts
         // U+1438
 
         // Method that draws the map and Player's Ghosts.
-        public void DrawMap()
+        public void DrawMap(Board board)
         {
             int rows = 5;
             int columns = 5;

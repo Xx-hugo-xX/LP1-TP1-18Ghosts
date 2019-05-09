@@ -7,6 +7,9 @@ namespace _18Ghosts
     class Player
     {
         public Ghost[] ghostList { get; set; }
+        public Ghost[] insideGhosts { get; set; }
+        public Ghost[] runawayGhosts { get; set; }
+        public Ghost[] lockedGhosts { get; set; }
         public Ghost R1 { get; set; }
         public Ghost R2 { get; set; }
         public Ghost R3 { get; set; }
@@ -46,6 +49,58 @@ namespace _18Ghosts
             ghostList[7] = Y2;
             ghostList[8] = Y3;
         }
+
+
+        public void UpdateLists()
+        {
+            int insideCounter = 0;
+            int runawayCounter = 0;
+            int lockedCounter = 0;
+            int insideAdding = 0;
+            int runawayAdding = 0;
+            int lockedAdding = 0;
+
+            // Checks how many ghosts are on each list
+            for (int i = 0; i < 9; i++)
+            {
+                if (ghostList[i].ghostState == GhostState.Inside)
+                    insideCounter++;
+
+                else if (ghostList[i].ghostState == GhostState.Runaway)
+                    runawayCounter++;
+
+                else
+                    lockedCounter++;
+            }
+
+            // Creates a new list of ghosts with the right size for each list
+            Ghost[] insideGhosts = new Ghost[insideCounter];
+            Ghost[] runawayGhosts = new Ghost[runawayCounter];
+            Ghost[] lockedGhosts = new Ghost[lockedCounter];
+
+            //Adiciona cada fantasma à lista devida
+            for (int i = 0; i < 9; i++)
+            {
+                if (ghostList[i].ghostState == GhostState.Inside)
+                {
+                    insideGhosts[insideAdding] = ghostList[i];
+                    insideAdding++;
+                }
+                else if (ghostList[i].ghostState == GhostState.Runaway)
+                {
+                    runawayGhosts[runawayAdding] = ghostList[i];
+                    runawayAdding++;
+                }
+                else
+                {
+                    lockedGhosts[lockedAdding] = ghostList[i];
+                    lockedAdding++;
+                }
+            }
+
+        }
+
+
 
 
         public Position PositionForNumber(int position)

@@ -6,50 +6,26 @@ namespace _18Ghosts
 {
     class GhostRespawn
     {
-        public void Respawn(Board board, Player currentPlayer, Player adversary)
+        public void Respawn(Board board, Player currentPlayer,
+            Player adversary)
         {
-            int dungeonCounter = 0;
-
-
-            // Gets how many ghosts have "Locked" state
-            for (int i = 0; i < 9; i++)
-            {
-                if (currentPlayer.ghostList[i].ghostState == GhostState.Locked)
-                    dungeonCounter++;
-            }
-
-            Ghost[] dungeonGhosts = new Ghost[dungeonCounter];
-            int adding = 0;
-
-
-            /* Loops players ghostList and adds all ghosts that have "Locked"
-            state to dungeonGhosts list */
-            for (int i = 0; i < 9; i++)
-            {
-                if (currentPlayer.ghostList[i].ghostState == GhostState.Locked)
-                {
-                    dungeonGhosts[adding] = currentPlayer.ghostList[i];
-                    adding++;
-                }
-            }
-
-
             Console.WriteLine("What ghost do you want to save?");
-            for (int i = 0; i < dungeonCounter; i++)
+            for (int i = 0; i < currentPlayer.lockedGhosts.Length; i++)
             {
-                Console.WriteLine($"{i+1} - {dungeonGhosts[i].name}");
+                Console.WriteLine($"{i+1} -" +
+                    $"{currentPlayer.lockedGhosts[i].name}");
             }
 
             int option = 0;
 
-            while (option < 1 || option > dungeonCounter)
+            while (option < 1 || option > currentPlayer.lockedGhosts.Length)
             {
                 option = Convert.ToInt32(Console.ReadLine());
-                if (option < 1 || option > dungeonCounter)
+                if (option < 1 || option > currentPlayer.lockedGhosts.Length)
                     Console.WriteLine("Please select a valid option.");
             }
 
-            Ghost savedGhost = dungeonGhosts[option - 1];
+            Ghost savedGhost = currentPlayer.lockedGhosts[option - 1];
 
             board.ChangeTurn();
 

@@ -7,7 +7,7 @@ namespace _18Ghosts
     class Ghost
     {
         //Instance variables
-        public string name { get; }
+        public string name { get; set; }
         public ConsoleColor color { get; }
         public Position position { get; set; }
         public GhostState ghostState { get; set; }
@@ -18,7 +18,7 @@ namespace _18Ghosts
             this.name = name;
             this.color = color;
             this.position = position;
-            ghostState = GhostState.Inside;
+            ghostState = GhostState.Locked;
         }
 
         public void Fight(Ghost g1, Ghost g2, Position wantedPosition)

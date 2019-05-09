@@ -10,17 +10,25 @@ namespace _18Ghosts
             Player p2, Movement movement, GhostRespawn ghostRespawn,
             CheckforWin checkforWin)
         {
-            int option = 0;
+            p1.insideGhosts = p1.InsideGhostUpdate();
+            p1.runawayGhosts = p1.RunawayGhostUpdate();
+            p1.lockedGhosts = p1.LockedGhostUpdate();
+            p2.insideGhosts = p2.InsideGhostUpdate();
+            p2.runawayGhosts = p2.RunawayGhostUpdate();
+            p2.lockedGhosts = p2.LockedGhostUpdate();
+
+
 
             while (checkforWin.Check(p1, p2) == RoomState.Undecided)
             {
                 // Print all display elements on screen
                 render.Rendering(board, p1, p2);
 
-
                 Console.WriteLine("What do you want to do?");
                 Console.WriteLine("1 - Move");
                 Console.WriteLine("2 - Rescue\n");
+
+                int option = 0;
 
                 while (option != 1 && option != 2)
                 {

@@ -215,7 +215,8 @@ namespace _18Ghosts
                             case 3: 
                                 if (board.state[i, k] == RoomState.P1)
                                     Console.Write("|      P1     ");
-                                else Console.Write("|      P2     ");
+                                else if (board.state[i, k] == RoomState.P2)
+                                    Console.Write("|      P2     ");
 
                                 if (space == 4 || space == 9 || space == 14 ||
                                     space == 19 || space == 24)
@@ -241,16 +242,15 @@ namespace _18Ghosts
                                     for (int l = 0; l < p1.insideGhosts.Length;
                                     l++)
                                     {
-                                        if (p1.insideGhosts[l].position.Row
-                                            == i && p1.insideGhosts[l].
-                                            position.Column == k)
+                                        if (p1.insideGhosts[l].position.Row== i
+                                            && p1.insideGhosts[l].position.
+                                            Column == k)
                                         {
-
+                                            Console.Write($"|      {p1.insideGhosts[l].name}     ");
                                         }
                                     }
                                 }
 
-                                Console.Write("|             ");
                                 if (space == 4 || space == 9 || space == 14 ||
                                     space == 19 || space == 24)
                                 {

@@ -22,12 +22,12 @@ namespace _18Ghosts
 
             GameLoop gameLoop = new GameLoop();
 
+            Setup setup = new Setup();
+
+            setup.SetPlayerSpaces(board, p1, p2);
             gameLoop.RunGameLoop(board, render, p1, p2, movement, ghostRespawn, checkforWin);
 
-            for (int i = 0; i < 9; i++)
-            {
-                Console.WriteLine(p1.ghostList[i].name);
-            }
+
             
         }
     }

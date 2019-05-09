@@ -9,10 +9,10 @@ namespace _18Ghosts
         public void Respawn(Board board, Player currentPlayer,
             Player adversary)
         {
-            Console.WriteLine("What ghost do you want to save?");
+            Console.WriteLine("\nWhat ghost do you want to save?");
             for (int i = 0; i < currentPlayer.lockedGhosts.Length; i++)
             {
-                Console.WriteLine($"{i+1} -" +
+                Console.WriteLine($"{i+1} - " +
                     $"{currentPlayer.lockedGhosts[i].name}");
             }
 
@@ -29,10 +29,10 @@ namespace _18Ghosts
 
             board.ChangeTurn();
 
-            Console.WriteLine("Where does the adversary want to" +
-                "put the ghost?");
-            Console.WriteLine(" Space has to be free and the same" +
-                "color as the ghost.");
+            Console.WriteLine("\nWhere does the adversary want to" +
+                " put the ghost?");
+            Console.WriteLine("Space has to be free and the same" +
+                " color as the ghost.");
             Console.WriteLine("Can't be a mirror or a portal (1-25)");
 
             
@@ -46,7 +46,7 @@ namespace _18Ghosts
             {
                 option = Convert.ToInt32(Console.ReadLine());
 
-                if (option < 1 || option > 25)
+                if (option >= 1 || option <= 25)
                 {
                     wantedPosition = currentPlayer.PositionForNumber(option);
                     if (savedGhost.color == ConsoleColor.Red &&
@@ -98,6 +98,8 @@ namespace _18Ghosts
 
                     currentPlayer.ghostList[i].position.Column
                         = wantedPosition.Column;
+
+                    currentPlayer.ghostList[i].ghostState = wantedState;
                 }
             }
         }

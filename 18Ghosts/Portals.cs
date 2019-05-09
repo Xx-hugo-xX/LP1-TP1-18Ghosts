@@ -7,9 +7,9 @@ namespace _18Ghosts
     //Creates the portals and makes it possible for them to rotate
     class Portals
     {
-        char symbol;
-        ConsoleColor color;
-        PortalState orientation;
+        public char symbol;
+        public ConsoleColor color;
+        public PortalState orientation;
         public Position portalPosition;
 
         //constructer method create a portal
@@ -24,25 +24,32 @@ namespace _18Ghosts
         }
 
         //rotate the portals door
-        public PortalState PortalRotation (Ghost ghost) 
+        public Portals PortalRotation () 
         {
             if (orientation == PortalState.North)
             {
                 orientation = PortalState.East;
+                symbol = '\u2191';
             }
             else if (orientation == PortalState.South)
             {
                 orientation = PortalState.West;
+                symbol = '\u2190';
+
             }
             else if (orientation == PortalState.West)
             {
                 orientation = PortalState.North;
+                symbol = '\u2192';
+
             }
             else if (orientation == PortalState.East)
             {
                 orientation = PortalState.South;
+                symbol = '\u2193';
+
             }
-            return orientation; 
+            return this; 
         }
 
         public Position DefTeleportPosition()

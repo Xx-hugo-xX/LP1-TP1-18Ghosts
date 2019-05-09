@@ -8,21 +8,22 @@ namespace _18Ghosts
     {
         public void RunGameLoop(Board board, Render render, Player p1,
             Player p2, Movement movement, GhostRespawn ghostRespawn,
-            CheckforWin checkforWin)
+            CheckforWin checkforWin, Portals pRed, Portals pBlue,
+            Portals pYellow, Ghost[] originalList)
         {
-            p1.insideGhosts = p1.InsideGhostUpdate();
-            p1.runawayGhosts = p1.RunawayGhostUpdate();
-            p1.lockedGhosts = p1.LockedGhostUpdate();
-            p2.insideGhosts = p2.InsideGhostUpdate();
-            p2.runawayGhosts = p2.RunawayGhostUpdate();
-            p2.lockedGhosts = p2.LockedGhostUpdate();
+            p1.insideGhosts = p1.InsideGhostUpdate(originalList);
+            p1.runawayGhosts = p1.RunawayGhostUpdate(originalList);
+            p1.lockedGhosts = p1.LockedGhostUpdate(originalList);
+            p2.insideGhosts = p2.InsideGhostUpdate(originalList);
+            p2.runawayGhosts = p2.RunawayGhostUpdate(originalList);
+            p2.lockedGhosts = p2.LockedGhostUpdate(originalList);
 
 
 
             while (checkforWin.Check(p1, p2) == RoomState.Undecided)
             {
                 // Print all display elements on screen
-                render.Rendering(board, p1, p2);
+                render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
 
                 Console.WriteLine("What do you want to do?");
                 Console.WriteLine("1 - Move");

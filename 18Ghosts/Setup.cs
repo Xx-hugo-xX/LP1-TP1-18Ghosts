@@ -6,55 +6,115 @@ namespace _18Ghosts
 {
     class Setup
     {
-        public void SetPlayerSpaces(Board board, Player p1, Player p2)
+        public void SetPlayerSpaces(Render render, Board board, Player p1,
+            Player p2, Portals pRed, Portals pBlue, Portals pYellow,
+            Ghost[] insideGhosts, Ghost[] runawayGhosts, Ghost[] lockedGhosts, Ghost[] ghostList)
         {
             board.currentTurn = RoomState.P1;
-            DefinePosition(board, p1);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+            DefinePosition(board, p1, ref insideGhosts,  runawayGhosts, lockedGhosts, ghostList);
             board.ChangeTurn();
-            DefinePosition(board, p2);
-            DefinePosition(board, p2);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+
+
+            DefinePosition(board, p2, ref insideGhosts, runawayGhosts, lockedGhosts, ghostList);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+
+
+            DefinePosition(board, p2, ref insideGhosts, runawayGhosts, lockedGhosts, ghostList);
             board.ChangeTurn();
-            DefinePosition(board, p1);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+           
+            DefinePosition(board, p1, ref insideGhosts, runawayGhosts, lockedGhosts, ghostList);
             board.ChangeTurn();
-            DefinePosition(board, p2);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+
+
+            DefinePosition(board, p2, ref insideGhosts, runawayGhosts, lockedGhosts, ghostList);
             board.ChangeTurn();
-            DefinePosition(board, p1);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+
+
+            DefinePosition(board, p1, ref insideGhosts, runawayGhosts, lockedGhosts, ghostList);
             board.ChangeTurn();
-            DefinePosition(board, p2);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+
+
+            DefinePosition(board, p2, ref insideGhosts, runawayGhosts, lockedGhosts, ghostList);
             board.ChangeTurn();
-            DefinePosition(board, p1);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+
+
+            DefinePosition(board, p1, ref insideGhosts, runawayGhosts, lockedGhosts, ghostList);
             board.ChangeTurn();
-            DefinePosition(board, p2);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+
+
+            DefinePosition(board, p2, ref insideGhosts, runawayGhosts, lockedGhosts, ghostList);
             board.ChangeTurn();
-            DefinePosition(board, p1);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+
+
+            DefinePosition(board, p1, ref insideGhosts, runawayGhosts, lockedGhosts, ghostList);
             board.ChangeTurn();
-            DefinePosition(board, p2);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+
+
+            DefinePosition(board, p2, ref insideGhosts, runawayGhosts, lockedGhosts, ghostList);
             board.ChangeTurn();
-            DefinePosition(board, p1);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+
+
+            DefinePosition(board, p1, ref insideGhosts, runawayGhosts, lockedGhosts, ghostList);
             board.ChangeTurn();
-            DefinePosition(board, p2);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+
+
+            DefinePosition(board, p2, ref insideGhosts, runawayGhosts, lockedGhosts, ghostList);
             board.ChangeTurn();
-            DefinePosition(board, p1);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+
+
+            DefinePosition(board, p1, ref insideGhosts, runawayGhosts, lockedGhosts, ghostList);
             board.ChangeTurn();
-            DefinePosition(board, p2);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+
+
+            DefinePosition(board, p2, ref insideGhosts, runawayGhosts, lockedGhosts, ghostList);
             board.ChangeTurn();
-            DefinePosition(board, p1);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+
+
+            DefinePosition(board, p1, ref insideGhosts, runawayGhosts, lockedGhosts, ghostList);
             board.ChangeTurn();
-            DefinePosition(board, p2);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+
+
+            DefinePosition(board, p2, ref insideGhosts, runawayGhosts, lockedGhosts, ghostList);
             board.ChangeTurn();
-            DefinePosition(board, p1);
+            render.Rendering(board, p1, p2, pRed, pBlue, pYellow);
+
+
+            DefinePosition(board, p1, ref insideGhosts, runawayGhosts, lockedGhosts, ghostList);
 
 
         }
 
-        public void DefinePosition(Board board, Player player)
+        public void DefinePosition(Board board, Player player,
+            ref Ghost[] insideGhosts, Ghost[] runawayGhosts,
+            Ghost[] lockedGhosts, Ghost[] originalList)
         {
-            Console.WriteLine("Qual fantasma quer colocar no tabuleiro?"); 
+
+           
+
+            bool choseSpace = false;
+
+            Console.WriteLine("Which ghost do you want to move?");
             for (int i = 0; i < player.lockedGhosts.Length; i++)
             {
-                Console.WriteLine($"{i+1} - {player.lockedGhosts[i].name}");
+                Console.WriteLine($"{i + 1} - {player.lockedGhosts[i].name}");
             }
-            bool choseSpace = false;
+
             while (choseSpace == false)
             {
                 int option = 0;
@@ -65,78 +125,73 @@ namespace _18Ghosts
                     if (option < 1 || option > player.lockedGhosts.Length)
                         Console.WriteLine("Please select a valid option.");
                 }
-                Ghost selectedGhost = player.lockedGhosts[option - 1];
-
                 Position coordinates = player.GetPosition(board);
 
                 if (board.state[coordinates.Row, coordinates.Column]
                     == RoomState.Undecided)
                 {
-                    for (int i = 0; i < player.lockedGhosts.Length; i++)
+                    if (player.lockedGhosts[option - 1].color
+                        == ConsoleColor.Red && board.type[coordinates.Row,
+                        coordinates.Column] == RoomType.Red)
                     {
-                        if (player.lockedGhosts[i].name == selectedGhost.name)
-                        {
-                            if (board.type[coordinates.Row,
-                                coordinates.Column] == RoomType.Red)
-                            {
-                                if (player.lockedGhosts[i].color
-                                    == ConsoleColor.Red)
-                                {
-                                    player.lockedGhosts[i].position
-                                        = coordinates;
-                                    if (board.currentTurn == RoomState.P1)
-                                        board.state[coordinates.Row,
-                                            coordinates.Column] = RoomState.P1;
-                                    else if (board.currentTurn == RoomState.P2)
-                                        board.state[coordinates.Row,
-                                            coordinates.Column] =
-                                            RoomState.P2;
-                                    choseSpace = true;
-                                }
+                        player.lockedGhosts[option - 1].position = coordinates;
+                        player.lockedGhosts[option - 1].ghostState = GhostState.Inside;
 
-                            }
-                            else if (board.type[coordinates.Row,
-                                coordinates.Column] == RoomType.Blue)
-                            {
-                                if (player.lockedGhosts[i].color
-                                    == ConsoleColor.Blue)
-                                {
-                                    player.lockedGhosts[i].position
-                                        = coordinates;
-                                    if (board.currentTurn == RoomState.P1)
-                                        board.state[coordinates.Row,
-                                            coordinates.Column] = RoomState.P1;
-                                    else if (board.currentTurn == RoomState.P2)
-                                        board.state[coordinates.Row,
-                                            coordinates.Column] =
-                                            RoomState.P2;
-                                    choseSpace = true;
-                                }
-                            }
-                            else if (board.type[coordinates.Row,
-                                coordinates.Column] == RoomType.Yellow)
-                            {
-                                if (player.lockedGhosts[i].color
-                                    == ConsoleColor.Yellow)
-                                {
-                                    player.lockedGhosts[i].position
-                                        = coordinates;
-                                    if (board.currentTurn == RoomState.P1)
-                                        board.state[coordinates.Row,
-                                            coordinates.Column] = RoomState.P1;
-                                    else if (board.currentTurn == RoomState.P2)
-                                            board.state[coordinates.Row,
-                                                coordinates.Column] =
-                                                RoomState.P2;
-                                    choseSpace = true;
-                                }
-                            }
+                        if (board.currentTurn == RoomState.P1)
+                        {
+                            board.state[coordinates.Row,
+                            coordinates.Column] = RoomState.P1;
                         }
+                        else if (board.currentTurn == RoomState.P2)
+                        {
+                            board.state[coordinates.Row,
+                            coordinates.Column] = RoomState.P2;
+                        }
+                        choseSpace = true;
                     }
+
+                    else if (player.lockedGhosts[option - 1].color == ConsoleColor.Blue && board.type[coordinates.Row, coordinates.Column] == RoomType.Blue)
+                    {
+                        player.lockedGhosts[option - 1].position = coordinates;
+                        player.lockedGhosts[option - 1].ghostState = GhostState.Inside;
+                        if (board.currentTurn == RoomState.P1)
+                        {
+                            board.state[coordinates.Row,
+                            coordinates.Column] = RoomState.P1;
+                        }
+                        else if (board.currentTurn == RoomState.P2)
+                        {
+                            board.state[coordinates.Row,
+                            coordinates.Column] = RoomState.P2;
+                        }
+                        choseSpace = true;
+                    }
+                    else if (player.lockedGhosts[option - 1].color == ConsoleColor.Yellow && board.type[coordinates.Row, coordinates.Column] == RoomType.Yellow)
+                    {
+                        player.lockedGhosts[option - 1].position = coordinates;
+                        player.lockedGhosts[option - 1].ghostState = GhostState.Inside;
+                        if (board.currentTurn == RoomState.P1)
+                        {
+                            board.state[coordinates.Row,
+                            coordinates.Column] = RoomState.P1;
+                        }
+                        else if (board.currentTurn == RoomState.P2)
+                        {
+                            board.state[coordinates.Row,
+                            coordinates.Column] = RoomState.P2;
+                        }
+                        choseSpace = true;
+                    }
+
                 }
                 if (choseSpace == false)
                     Console.WriteLine("Position not available.");
+
+                player.insideGhosts = player.InsideGhostUpdate(originalList);
+                player.runawayGhosts = player.RunawayGhostUpdate(originalList);
+                player.lockedGhosts = player.LockedGhostUpdate(originalList);
             }
         }
     }
 }
+                

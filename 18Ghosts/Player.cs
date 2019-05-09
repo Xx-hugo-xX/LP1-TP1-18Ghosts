@@ -39,9 +39,9 @@ namespace _18Ghosts
             Y3 = new Ghost("y3", ConsoleColor.Yellow, new Position(0, 0));
 
             ghostList = GetGhostList();
-            insideGhosts = InsideGhostUpdate();
-            runawayGhosts = RunawayGhostUpdate();
-            lockedGhosts = LockedGhostUpdate();
+            insideGhosts = InsideGhostUpdate(ghostList);
+            runawayGhosts = RunawayGhostUpdate(ghostList);
+            lockedGhosts = LockedGhostUpdate(ghostList);
         }
 
 
@@ -63,35 +63,21 @@ namespace _18Ghosts
         }
 
 
-        public Ghost[] InsideGhostUpdate()
+        public Ghost[] InsideGhostUpdate(Ghost[] originalList)
         {
-            int insideCounter = 0;
-            int insideAdding = 0;
-
+            List<Ghost> insideGhosts = new List<Ghost>();
             // Checks how many ghosts are on each list
             for (int i = 0; i < 9; i++)
             {
-                if (ghostList[i].ghostState == GhostState.Inside)
-                    insideCounter++;
+                if (originalList[i].ghostState == GhostState.Inside)
+                    insideGhosts.Add(originalList[i]);
             }
 
-            // Creates a new list of ghosts with the right size for each list
-            Ghost[] insideGhosts = new Ghost[insideCounter];
-
-            //Adiciona cada fantasma à lista devida
-            for (int i = 0; i < 9; i++)
-            {
-                if (ghostList[i].ghostState == GhostState.Inside)
-                {
-                    insideGhosts[insideAdding] = ghostList[i];
-                    insideAdding++;
-                }
-            }
-            return insideGhosts;
+            return insideGhosts.ToArray();
         }
 
 
-        public Ghost[] RunawayGhostUpdate()
+        public Ghost[] RunawayGhostUpdate(Ghost[] originalList)
         {
             int runawayCounter = 0;
             int runawayAdding = 0;
@@ -99,7 +85,7 @@ namespace _18Ghosts
             // Checks how many ghosts are on each list
             for (int i = 0; i < 9; i++)
             {
-                if (ghostList[i].ghostState == GhostState.Runaway)
+                if (originalList[i].ghostState == GhostState.Runaway)
                     runawayCounter++;
             }
             // Creates a new list of ghosts with the right size for each list
@@ -108,9 +94,9 @@ namespace _18Ghosts
             //Adiciona cada fantasma à lista devida
             for (int i = 0; i < 9; i++)
             {
-                if (ghostList[i].ghostState == GhostState.Runaway)
+                if (originalList[i].ghostState == GhostState.Runaway)
                 {
-                    runawayGhosts[runawayAdding] = ghostList[i];
+                    runawayGhosts[runawayAdding] = originalList[i];
                     runawayAdding++;
                 }
             }
@@ -118,7 +104,7 @@ namespace _18Ghosts
         }
 
 
-        public Ghost[] LockedGhostUpdate()
+        public Ghost[] LockedGhostUpdate(Ghost[] originalList)
         {
             int lockedCounter = 0;
             int lockedAdding = 0;
@@ -126,7 +112,7 @@ namespace _18Ghosts
             // Checks how many ghosts are on the list
             for (int i = 0; i < 9; i++)
             {
-                if (ghostList[i].ghostState == GhostState.Locked)
+                if (originalList[i].ghostState == GhostState.Locked)
                     lockedCounter++;
             }
 
@@ -136,9 +122,9 @@ namespace _18Ghosts
             //Adiciona cada fantasma à lista devida
             for (int i = 0; i < 9; i++)
             {
-                if (ghostList[i].ghostState == GhostState.Locked)
+                if (originalList[i].ghostState == GhostState.Locked)
                 {
-                    lockedGhosts[lockedAdding] = ghostList[i];
+                    lockedGhosts[lockedAdding] = originalList[i];
                     lockedAdding++;
                 }
             }

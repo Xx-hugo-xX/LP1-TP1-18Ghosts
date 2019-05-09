@@ -6,9 +6,6 @@ namespace _18Ghosts
 {
     class Movement
     {
-        public Movement()
-        {
-        }
         public void Move(Board board, Player p1, Player p2)
         {
             Console.WriteLine("Which ghost do you want to move?");

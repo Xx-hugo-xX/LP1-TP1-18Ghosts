@@ -289,7 +289,7 @@ namespace _18Ghosts
                                     l++)
                                     {
                                         if (p2.insideGhosts[l].position.Row == i
-                                            && p1.insideGhosts[l].position.
+                                            && p2.insideGhosts[l].position.
                                             Column == k)
                                         {
                                             Console.Write($"|" +

@@ -61,7 +61,10 @@ namespace _18Ghosts
 
                 if (option == 1)
                 {
-                    //movement function call
+                    if (board.currentTurn == RoomState.P1)
+                        movement.Move(board, p1, p2);
+                    else if (board.currentTurn == RoomState.P2)
+                        movement.Move(board, p2, p1);
                 }
 
                 else

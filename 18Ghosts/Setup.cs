@@ -27,6 +27,9 @@ namespace _18Ghosts
             }
         }
 
-        public void PercorrerJogadores(Board board, Ghost ghost) 
+        public void PercorrerJogadores(Board board, Ghost ghost)
+        {
+
+        }
     }
 }

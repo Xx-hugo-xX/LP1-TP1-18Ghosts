@@ -15,9 +15,7 @@ namespace _18Ghosts
         // Class constructor
         public Board()
         {
-            state = new RoomState[5, 5];
-         
-            
+            state = new RoomState[5, 5]; 
             
             type = new RoomType[5, 5] {{RoomType.Blue, RoomType.Red,
                     RoomType.PortalRed, RoomType.Blue, RoomType.Red},
@@ -29,7 +27,6 @@ namespace _18Ghosts
                     RoomType.Mirror, RoomType.Red},
                     { RoomType.Yellow, RoomType.Red, RoomType.PortalBlue,
                     RoomType.Blue, RoomType.Yellow}}; 
-                
 
 
             coordinates = new Position[5, 5, 4];
@@ -60,15 +57,5 @@ namespace _18Ghosts
             if (currentTurn == RoomState.P1) currentTurn = RoomState.P2;
             else currentTurn = RoomState.P1;
         }
-
-        /*public Position GetCoordinate(Position playerPosition)
-        {
-
-
-        }
-        */
-       
-
-
     }
 }

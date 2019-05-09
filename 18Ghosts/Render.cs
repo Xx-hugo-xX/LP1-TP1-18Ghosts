@@ -10,20 +10,43 @@ namespace _18Ghosts
         {
             ActvGhosts(p1, p2);
             CapturedGhosts(p1, p2);
-            PlayerTurn();
+            EscapedGhosts(p1, p2);
+            PlayerTurn(board);
             BattleRules();
-            DrawMap(board);
+            DrawMap(board, p1, p2);
         }
         // Method that shows the number of active Ghosts for both Players
         //(Ghosts in the board).
         public void ActvGhosts(Player p1, Player p2)
         {
 
-            //Console.WriteLine("Active Ghosts:");
+            Console.WriteLine("Roaming Ghosts:");
             //Shows the number of Player1's active Ghosts.
-            //Console.WriteLine($"Player1: R({}) / Y({}) / B({})");
-            //Shows the number of Player2's active Ghosts.
-            //Console.WriteLine($"Player2: R({}) / Y({}) / B({})");
+            Console.Write("P1 - ");
+            for (int i = 0; i < p1.insideGhosts.Length; i++)
+            {
+                if (i == (p1.insideGhosts.Length -1))
+                {
+                    Console.Write($"{p1.insideGhosts[i].name}.");
+                }
+                else
+                {
+                    Console.Write($"{p1.insideGhosts[i].name}, ");
+                }
+            }
+            Console.Write("\nP2 - ");
+            for (int i = 0; i < p2.insideGhosts.Length; i++)
+            {
+                if (i == (p2.insideGhosts.Length - 1))
+                {
+                    Console.Write($"{p2.insideGhosts[i].name}.");
+                }
+                else
+                {
+                    Console.Write($"{p2.insideGhosts[i].name}, ");
+                }
+            }
+
 
         }
 
@@ -32,41 +55,87 @@ namespace _18Ghosts
         public void CapturedGhosts(Player p1, Player p2)
         {
 
-            //Console.WriteLine("Active Ghosts:");
-            //Shows the number of Player1's captured Ghosts.
-            //Console.WriteLine($"Player1: R({}) / Y({}) / B({})");
-            //Shows the number of Player2's captured Ghosts.
-            //Console.WriteLine($"Player2: R({}) / Y({}) / B({})");
+            Console.WriteLine("\n\nTrapped Ghosts:");
+            //Shows the number of Player1's active Ghosts.
+            Console.Write("P1 - ");
+            for (int i = 0; i < p1.lockedGhosts.Length; i++)
+            {
+                if (i == (p1.lockedGhosts.Length - 1))
+                {
+                    Console.Write($"{p1.lockedGhosts[i].name}.");
+                }
+                else
+                {
+                    Console.Write($"{p1.lockedGhosts[i].name}, ");
+                }
+            }
+            Console.Write("\nP2 - ");
+            for (int i = 0; i < p2.lockedGhosts.Length; i++)
+            {
+                if (i == (p2.lockedGhosts.Length - 1))
+                {
+                    Console.Write($"{p2.lockedGhosts[i].name}.");
+                }
+                else
+                {
+                    Console.Write($"{p2.lockedGhosts[i].name}, ");
+                }
+            }
 
         }
 
+        public void EscapedGhosts(Player p1, Player p2)
+        {
+
+            Console.WriteLine("\n\nEscaped Ghosts:");
+            //Shows the number of Player1's active Ghosts.
+            Console.Write("P1 - ");
+            for (int i = 0; i < p1.runawayGhosts.Length; i++)
+            {
+                if (i == (p1.runawayGhosts.Length - 1))
+                {
+                    Console.Write($"{p1.runawayGhosts[i].name}.");
+                }
+                else
+                {
+                    Console.Write($"{p1.runawayGhosts[i].name}, ");
+                }
+            }
+            Console.Write("\nP2 - ");
+            for (int i = 0; i < p2.runawayGhosts.Length; i++)
+            {
+                if (i == (p2.runawayGhosts.Length - 1))
+                {
+                    Console.Write($"{p2.runawayGhosts[i].name}.");
+                }
+                else
+                {
+                    Console.Write($"{p2.runawayGhosts[i].name}, ");
+                }
+            }
+        }
+
         // Method that shows who's Players turn it is to play.
-        public void PlayerTurn()
+        public void PlayerTurn(Board board)
         {
             //Shows wich Player's turn it is to play.
-            //Console.WriteLine($"Turn: {}");
+            Console.Write($"\n\nTurn: {board.currentTurn}");
         }
 
         // Method that shows the players which Ghost (color) is superior to
         //which in combat.
         public void BattleRules()
         {
-            Console.WriteLine("R -> B -> Y -> R");
+            Console.Write("  |  Red -> Blue; Blue -> Yellow; Yellow -> Red\n");
         }
 
-        //UNICODE
-        //poderao dar jeito os seguintes símbolos:
-        // U+142F
-        // U+1431
-        // U+1433
-        // U+1438
 
         // Method that draws the map and Player's Ghosts.
-        public void DrawMap(Board board)
+        public void DrawMap(Board board, Player p1, Player p2)
         {
             int rows = 5;
             int columns = 5;
-            int lines = 8;
+            int lines = 7;
             int space = 0;
 
 
@@ -82,7 +151,7 @@ namespace _18Ghosts
                         {
                             //This row defines the top limit of the map grid. 
                             case 0:
-                                Console.Write("+----------------");
+                                Console.Write("+-------------");
                                 if (space == 4 || space == 9 || space == 14 || 
                                     space == 19 || space == 24)
                                 {
@@ -100,7 +169,7 @@ namespace _18Ghosts
                                 //spaces).
                                 if ((space + 1) < 10)
                                 {
-                                    Console.Write($"{space + 1}             " +
+                                    Console.Write($"{space + 1}          " +
                                         $"  ");
                                 }
                                 //This specific condition deals with house 
@@ -108,7 +177,7 @@ namespace _18Ghosts
                                 //number of spaces).
                                 else
                                 {
-                                    Console.Write($"{space + 1}             " +
+                                    Console.Write($"{space + 1}          " +
                                         $" ");
                                 }
                                 //This condition specificly draws the division
@@ -123,7 +192,19 @@ namespace _18Ghosts
                             //This row is simply empty, having only the
                             //division between diferent houses.
                             case 2:
-                                Console.Write("|                ");
+                                Console.Write("|");
+                                if (board.type[i, k] == RoomType.Red)
+                                    Console.BackgroundColor = ConsoleColor.Red;
+                                else if (board.type[i, k] ==
+                                    RoomType.Blue)
+                                    Console.BackgroundColor =
+                                        ConsoleColor.Blue;
+                                else if (board.type[i, k] ==
+                                    RoomType.Yellow)
+                                    Console.BackgroundColor =
+                                        ConsoleColor.Yellow;
+                                Console.Write("             ");
+                                Console.BackgroundColor = ConsoleColor.Black;
                                 if (space == 4 || space == 9 || space == 14 ||
                                     space == 19 || space == 24)
                                 {
@@ -131,8 +212,11 @@ namespace _18Ghosts
                                 }
                                 break;
 
-                            case 3:
-                                Console.Write("|                ");
+                            case 3: 
+                                if (board.state[i, k] == RoomState.P1)
+                                    Console.Write("|      P1     ");
+                                else Console.Write("|      P2     ");
+
                                 if (space == 4 || space == 9 || space == 14 ||
                                     space == 19 || space == 24)
                                 {
@@ -143,7 +227,7 @@ namespace _18Ghosts
                             //This row is simply empty, having only the
                             //division between diferent houses.
                             case 4:
-                                Console.Write("|                ");
+                                Console.Write("|             ");
                                 if (space == 4 || space == 9 || space == 14 ||
                                     space == 19 || space == 24)
                                 {
@@ -152,7 +236,21 @@ namespace _18Ghosts
                                 break;
 
                             case 5:
-                                Console.Write("|                ");
+                                if (board.state[i, k] == RoomState.P1)
+                                {
+                                    for (int l = 0; l < p1.insideGhosts.Length;
+                                    l++)
+                                    {
+                                        if (p1.insideGhosts[l].position.Row
+                                            == i && p1.insideGhosts[l].
+                                            position.Column == k)
+                                        {
+
+                                        }
+                                    }
+                                }
+
+                                Console.Write("|             ");
                                 if (space == 4 || space == 9 || space == 14 ||
                                     space == 19 || space == 24)
                                 {
@@ -163,7 +261,7 @@ namespace _18Ghosts
                             //This row is simply empty, having only the
                             //division between diferent houses.
                             case 6:
-                                Console.Write("|                ");
+                                Console.Write("|             ");
                                 if (space == 4 || space == 9 || space == 14 ||
                                     space == 19 || space == 24)
                                 {
@@ -171,24 +269,15 @@ namespace _18Ghosts
                                 }
                                 break;
 
-                                //This row defines the bottom limit of the map
-                                //grid.
-                            case 7:
-                                Console.Write("|                ");
-                                if (space == 4 || space == 9 || space == 14 || 
-                                    space == 19 || space == 24)
-                                {
-                                    Console.Write("|");
-                                }
-                                break;
+
                         }
                     }
                     Console.Write("\n");
                 }
 
             }
-            Console.Write("+----------------+----------------+----------------+" +
-            "----------------+----------------+\n\n");
+            Console.Write("+-------------+-------------+-------------+" +
+            "-------------+-------------+\n\n");
         }
     }
 }

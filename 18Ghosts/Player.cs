@@ -6,6 +6,7 @@ namespace _18Ghosts
 {
     class Player
     {
+        //Instance Varibles
         public Ghost[] ghostList { get; set; }
         public Ghost[] insideGhosts { get; set; }
         public Ghost[] runawayGhosts { get; set; }
@@ -20,7 +21,7 @@ namespace _18Ghosts
         public Ghost Y2 { get; set; }
         public Ghost Y3 { get; set; }
 
-
+        // Constructor class
         public Player()
         {
             //Create and initialize an array of ghosts for each player
@@ -38,7 +39,11 @@ namespace _18Ghosts
             Y3 = new Ghost("y3", ConsoleColor.Yellow, new Position(0, 0));
 
             ghostList = GetGhostList();
+            insideGhosts = InsideGhostUpdate();
+            runawayGhosts = RunawayGhostUpdate();
+            lockedGhosts = LockedGhostUpdate();
         }
+
 
         public Ghost[] GetGhostList()
         {

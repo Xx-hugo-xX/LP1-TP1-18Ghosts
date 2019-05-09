@@ -10,7 +10,7 @@ namespace _18Ghosts
         public RoomState[,] state;
         public RoomType[,] type;
         public Position[,,] coordinates;
-        public RoomState currentTurn { get; private set;}
+        public RoomState currentTurn { get; set;}
 
         // Class constructor
         public Board()
@@ -18,18 +18,18 @@ namespace _18Ghosts
             state = new RoomState[5, 5];
          
             
-            /*
+            
             type = new RoomType[5, 5] {{RoomType.Blue, RoomType.Red,
-                    RoomType.Portal, RoomType.Blue, RoomType.Red},
+                    RoomType.PortalRed, RoomType.Blue, RoomType.Red},
                     { RoomType.Yellow, RoomType.Mirror, RoomType.Yellow,
                     RoomType.Mirror, RoomType.Yellow},
                     { RoomType.Red, RoomType.Blue, RoomType.Red,
-                    RoomType.Blue, RoomType.Portal},
+                    RoomType.Blue, RoomType.PortalYellow},
                     { RoomType.Blue, RoomType.Mirror, RoomType.Yellow,
                     RoomType.Mirror, RoomType.Red},
-                    { RoomType.Yellow, RoomType.Red, RoomType.Portal,
+                    { RoomType.Yellow, RoomType.Red, RoomType.PortalBlue,
                     RoomType.Blue, RoomType.Yellow}}; 
-                */
+                
 
 
             coordinates = new Position[5, 5, 4];

@@ -6,19 +6,72 @@ namespace _18Ghosts
 {
     class GameLoop
     {
-        //Check if anyone has won the game (while loop)
+        public void RunGameLoop(Board board, Render render, Player p1,
+            Player p2, Movement movement, GhostRespawn ghostRespawn,
+            CheckforWin checkforWin)
+        {
+            int option = 0;
 
-        //Check who's turn it is
+            while (checkforWin.Check(p1, p2) == RoomState.Undecided)
+            {
+                // Print all display elements on screen
+                render.Rendering(board, p1, p2);
 
-        //Print board on the console
 
-        //Ask what action the player wants to take
+                Console.WriteLine("What do you want to do?");
+                Console.WriteLine("1 - Move");
+                Console.WriteLine("2 - Rescue\n");
 
-        //If he wants to move, run Movement method from Ghost class
+                while (option != 1 && option != 2)
+                {
+                    option = Convert.ToInt32(Console.ReadLine());
+                    if (option != 1 && option != 2)
+                        Console.WriteLine("Please select a valid option.");
 
-        //Else If he wants to save a ghost, run Release method from Ghost class
+                    if (board.currentTurn == RoomState.P1 && option == 2
+                        && p1.lockedGhosts.Length == 0)
+                    {
+                        Console.WriteLine("You have no ghosts" +
+                            " in the dungeon.");
+                        Console.WriteLine("\nWhat do you want to do?");
+                        Console.WriteLine("1 - Move");
+                        Console.WriteLine("2 - Rescue");
+                        option = 0;
+                    }
+                    if (board.currentTurn == RoomState.P2 && option == 2
+                        && p2.lockedGhosts.Length == 0)
+                    {
+                        Console.WriteLine("You have no ghosts" +
+                            " in the dungeon.");
+                        Console.WriteLine("\nWhat do you want to do?");
+                        Console.WriteLine("1 - Move");
+                        Console.WriteLine("2 - Rescue");
+                        option = 0;
+                    }
+                }
 
-        //Change turns
+                if (option == 1)
+                {
+                    //movement function call
+                }
 
+                else
+                {
+                    if (board.currentTurn == RoomState.P1)
+                    {
+                        if (ghostRespawn.IsThereGhostToRescue(board, p1)
+                            == true)
+                            ghostRespawn.Respawn(board, p1, p2);
+                    }
+                    else
+                    {
+                        if (ghostRespawn.IsThereGhostToRescue(board, p2)
+                            == true)
+                            ghostRespawn.Respawn(board, p2, p1);
+                    }
+                }
+                board.ChangeTurn();
+            }
+        }
     }
 }

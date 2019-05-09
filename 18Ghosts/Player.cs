@@ -6,7 +6,11 @@ namespace _18Ghosts
 {
     class Player
     {
+        //Instance Varibles
         public Ghost[] ghostList { get; set; }
+        public Ghost[] insideGhosts { get; set; }
+        public Ghost[] runawayGhosts { get; set; }
+        public Ghost[] lockedGhosts { get; set; }
         public Ghost R1 { get; set; }
         public Ghost R2 { get; set; }
         public Ghost R3 { get; set; }
@@ -17,12 +21,11 @@ namespace _18Ghosts
         public Ghost Y2 { get; set; }
         public Ghost Y3 { get; set; }
 
-
+        // Constructor class
         public Player()
         {
             //Create and initialize an array of ghosts for each player
-            Ghost[] ghostList = new Ghost[9];
-
+            
 
             //Define every ghost a player has from the beginning
             R1 = new Ghost("r1", ConsoleColor.Red, new Position(0, 0));
@@ -35,7 +38,17 @@ namespace _18Ghosts
             Y2 = new Ghost("y2", ConsoleColor.Yellow, new Position(0, 0));
             Y3 = new Ghost("y3", ConsoleColor.Yellow, new Position(0, 0));
 
-            //Add ghosts to the array
+            ghostList = GetGhostList();
+            insideGhosts = InsideGhostUpdate();
+            runawayGhosts = RunawayGhostUpdate();
+            lockedGhosts = LockedGhostUpdate();
+        }
+
+
+        public Ghost[] GetGhostList()
+        {
+            Ghost[] ghostList = new Ghost[9];
+
             ghostList[0] = R1;
             ghostList[1] = R2;
             ghostList[2] = R3;
@@ -45,10 +58,98 @@ namespace _18Ghosts
             ghostList[6] = Y1;
             ghostList[7] = Y2;
             ghostList[8] = Y3;
+
+            return ghostList;
         }
 
 
-        private Position PositionForNumber(int position)
+        public Ghost[] InsideGhostUpdate()
+        {
+            int insideCounter = 0;
+            int insideAdding = 0;
+
+            // Checks how many ghosts are on each list
+            for (int i = 0; i < 9; i++)
+            {
+                if (ghostList[i].ghostState == GhostState.Inside)
+                    insideCounter++;
+            }
+
+            // Creates a new list of ghosts with the right size for each list
+            Ghost[] insideGhosts = new Ghost[insideCounter];
+
+            //Adiciona cada fantasma à lista devida
+            for (int i = 0; i < 9; i++)
+            {
+                if (ghostList[i].ghostState == GhostState.Inside)
+                {
+                    insideGhosts[insideAdding] = ghostList[i];
+                    insideAdding++;
+                }
+            }
+            return insideGhosts;
+        }
+
+
+        public Ghost[] RunawayGhostUpdate()
+        {
+            int runawayCounter = 0;
+            int runawayAdding = 0;
+
+            // Checks how many ghosts are on each list
+            for (int i = 0; i < 9; i++)
+            {
+                if (ghostList[i].ghostState == GhostState.Runaway)
+                    runawayCounter++;
+            }
+            // Creates a new list of ghosts with the right size for each list
+            Ghost[] runawayGhosts = new Ghost[runawayCounter];
+
+            //Adiciona cada fantasma à lista devida
+            for (int i = 0; i < 9; i++)
+            {
+                if (ghostList[i].ghostState == GhostState.Runaway)
+                {
+                    runawayGhosts[runawayAdding] = ghostList[i];
+                    runawayAdding++;
+                }
+            }
+            return runawayGhosts;
+        }
+
+
+        public Ghost[] LockedGhostUpdate()
+        {
+            int lockedCounter = 0;
+            int lockedAdding = 0;
+
+            // Checks how many ghosts are on the list
+            for (int i = 0; i < 9; i++)
+            {
+                if (ghostList[i].ghostState == GhostState.Locked)
+                    lockedCounter++;
+            }
+
+            // Creates a new list of ghosts with the right size
+            Ghost[] lockedGhosts = new Ghost[lockedCounter];
+
+            //Adiciona cada fantasma à lista devida
+            for (int i = 0; i < 9; i++)
+            {
+                if (ghostList[i].ghostState == GhostState.Locked)
+                {
+                    lockedGhosts[lockedAdding] = ghostList[i];
+                    lockedAdding++;
+                }
+            }
+            return lockedGhosts;
+        }
+
+
+
+
+
+        public Position PositionForNumber(int position)
         {
             switch (position)
             {

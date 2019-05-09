@@ -20,13 +20,34 @@ namespace _18Ghosts
 
                 Console.WriteLine("What do you want to do?");
                 Console.WriteLine("1 - Move");
-                Console.WriteLine("2 - Rescue");
+                Console.WriteLine("2 - Rescue\n");
 
                 while (option != 1 && option != 2)
                 {
                     option = Convert.ToInt32(Console.ReadLine());
                     if (option != 1 && option != 2)
                         Console.WriteLine("Please select a valid option.");
+
+                    if (board.currentTurn == RoomState.P1 && option == 2
+                        && p1.lockedGhosts.Length == 0)
+                    {
+                        Console.WriteLine("You have no ghosts" +
+                            " in the dungeon.");
+                        Console.WriteLine("\nWhat do you want to do?");
+                        Console.WriteLine("1 - Move");
+                        Console.WriteLine("2 - Rescue");
+                        option = 0;
+                    }
+                    if (board.currentTurn == RoomState.P2 && option == 2
+                        && p2.lockedGhosts.Length == 0)
+                    {
+                        Console.WriteLine("You have no ghosts" +
+                            " in the dungeon.");
+                        Console.WriteLine("\nWhat do you want to do?");
+                        Console.WriteLine("1 - Move");
+                        Console.WriteLine("2 - Rescue");
+                        option = 0;
+                    }
                 }
 
                 if (option == 1)

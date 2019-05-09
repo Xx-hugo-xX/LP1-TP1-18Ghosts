@@ -46,7 +46,7 @@ namespace _18Ghosts
             {
                 option = Convert.ToInt32(Console.ReadLine());
                 if (option < 1 || option > dungeonCounter)
-                    Console.WriteLine("Please input a valid answer.");
+                    Console.WriteLine("Please select a valid option.");
             }
 
             Ghost savedGhost = dungeonGhosts[option - 1];
@@ -102,7 +102,7 @@ namespace _18Ghosts
                     }
                     else Console.WriteLine("That position is unavailable.");
                 }
-                else Console.WriteLine("That option is not valid.");
+                else Console.WriteLine("Please select a valid option.");
             }
             board.ChangeTurn();
         }
@@ -124,6 +124,12 @@ namespace _18Ghosts
                         = wantedPosition.Column;
                 }
             }
+        }
+
+        // Fix later
+        public bool IsThereGhostToRescue(Board board, Player player)
+        {
+            return true;
         }
     }
 }

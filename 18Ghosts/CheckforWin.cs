@@ -4,17 +4,9 @@ using System.Text;
 
 namespace _18Ghosts
 {
+    //Checks if a player can win the game
     class CheckforWin
     {
-        //se jogo estiver no modo fast tem o jogador tem de eliminar 3 fantasmas
-        //public void modo (string[] args)
-        // {
-        // if jogo == fast //criar fast
-        // {
-        //     Check();
-        // }
-        //}
-
         public RoomState Check(Player p1, Player p2 )
         {
             if (CheckForWin(p1)) return RoomState.P1;
@@ -22,7 +14,7 @@ namespace _18Ghosts
             else return RoomState.Undecided;
         }
 
-
+        //Checks the Color
         public bool CheckForWin(Player player)
         {
             bool won = false;

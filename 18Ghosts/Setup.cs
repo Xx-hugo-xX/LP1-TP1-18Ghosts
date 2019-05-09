@@ -26,5 +26,7 @@ namespace _18Ghosts
                 wantedPosition.Column] == RoomState.Undecided)
             }
         }
+
+        public void PercorrerJogadores(Board board, Ghost ghost) 
     }
 }

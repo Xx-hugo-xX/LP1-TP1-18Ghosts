@@ -76,59 +76,29 @@ namespace _18Ghosts
             return insideGhosts.ToArray();
         }
 
-
         public Ghost[] RunawayGhostUpdate(Ghost[] originalList)
         {
-            int runawayCounter = 0;
-            int runawayAdding = 0;
-
+            List<Ghost> runawayGhosts = new List<Ghost>();
             // Checks how many ghosts are on each list
             for (int i = 0; i < 9; i++)
             {
                 if (originalList[i].ghostState == GhostState.Runaway)
-                    runawayCounter++;
+                    runawayGhosts.Add(originalList[i]);
             }
-            // Creates a new list of ghosts with the right size for each list
-            Ghost[] runawayGhosts = new Ghost[runawayCounter];
 
-            //Adiciona cada fantasma à lista devida
-            for (int i = 0; i < 9; i++)
-            {
-                if (originalList[i].ghostState == GhostState.Runaway)
-                {
-                    runawayGhosts[runawayAdding] = originalList[i];
-                    runawayAdding++;
-                }
-            }
-            return runawayGhosts;
+            return runawayGhosts.ToArray();
         }
-
 
         public Ghost[] LockedGhostUpdate(Ghost[] originalList)
         {
-            int lockedCounter = 0;
-            int lockedAdding = 0;
-
-            // Checks how many ghosts are on the list
+            List<Ghost> lockedGhosts = new List<Ghost>();
+            // Checks how many ghosts are on each list
             for (int i = 0; i < 9; i++)
             {
                 if (originalList[i].ghostState == GhostState.Locked)
-                    lockedCounter++;
+                    lockedGhosts.Add(originalList[i]);
             }
-
-            // Creates a new list of ghosts with the right size
-            Ghost[] lockedGhosts = new Ghost[lockedCounter];
-
-            //Adiciona cada fantasma à lista devida
-            for (int i = 0; i < 9; i++)
-            {
-                if (originalList[i].ghostState == GhostState.Locked)
-                {
-                    lockedGhosts[lockedAdding] = originalList[i];
-                    lockedAdding++;
-                }
-            }
-            return lockedGhosts;
+            return lockedGhosts.ToArray();
         }
 
 

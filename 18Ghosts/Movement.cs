@@ -91,7 +91,6 @@ namespace _18Ghosts
                         {
                             movingGhost.Fight(movingGhost, p1.insideGhosts[i],
                                 movingGhost.position);
-
                         }
                     }
                 }
@@ -102,7 +101,10 @@ namespace _18Ghosts
         {
             if (movingPosition.Row < 0 || movingPosition.Row > 4 ||
                 movingPosition.Column < 0 || movingPosition.Column > 4)
+            {
+                Console.WriteLine("Não quero #1");
                 return false;
+            }
 
             RoomState positionState = board.state[movingPosition.Row,
                 movingPosition.Column];
@@ -116,7 +118,10 @@ namespace _18Ghosts
                         == movingPosition.Column)
                     {
                         if (p1.insideGhosts[i].color == ghost.color)
+                        {
+                            Console.WriteLine("Não que #2");
                             return false;
+                        }
                     }
                 }
             }
@@ -129,7 +134,10 @@ namespace _18Ghosts
                         == movingPosition.Column)
                     {
                         if (p2.insideGhosts[i].color == ghost.color)
+                        {
+                            Console.WriteLine("Não que #3");
                             return false;
+                        }
                     }
                 }
             }

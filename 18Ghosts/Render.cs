@@ -298,8 +298,7 @@ namespace _18Ghosts
                                         }
                                     }
                                 }
-                                else
-                                    Console.Write("|             ");
+                                
 
                                 if (space == 4 || space == 9 || space == 14 ||
                                     space == 19 || space == 24)

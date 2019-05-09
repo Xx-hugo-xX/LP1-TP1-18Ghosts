@@ -48,7 +48,7 @@ namespace _18Ghosts
         }
 
 
-        private Position PositionForNumber(int position)
+        public Position PositionForNumber(int position)
         {
             switch (position)
             {

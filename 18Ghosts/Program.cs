@@ -16,10 +16,9 @@ namespace _18Ghosts
             Player p2 = new Player();
 
             render.DrawMap();
+ 
 
-            string nome = p1.R1.name; 
-
-            Console.WriteLine($"{nome}");
+            Console.WriteLine($"{p1.R1.ghostState}");
 
 
                 

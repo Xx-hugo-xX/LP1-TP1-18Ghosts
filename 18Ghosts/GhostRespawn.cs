@@ -59,11 +59,13 @@ namespace _18Ghosts
                 "color as the ghost.");
             Console.WriteLine("Can't be a mirror or a portal (1-25)");
 
-
+            
             bool validSpace = false;
             option = 0;
             Position wantedPosition;
 
+            /* Opponent decides where he wants to put the ghost.
+            Ghost is put in said position, if it is a valid one */
             while (validSpace == false)
             {
                 option = Convert.ToInt32(Console.ReadLine());
@@ -76,7 +78,8 @@ namespace _18Ghosts
                         == RoomType.Red && board.state[wantedPosition.Row,
                         wantedPosition.Column] == RoomState.Undecided)
                     {
-                        MakeChanges(currentPlayer, savedGhost, wantedPosition);
+                        MakeChanges(currentPlayer, savedGhost, wantedPosition,
+                            GhostState.Inside);
                         validSpace = true;
                     }
                     else if (savedGhost.color == ConsoleColor.Blue &&
@@ -84,7 +87,8 @@ namespace _18Ghosts
                         == RoomType.Blue && board.state[wantedPosition.Row,
                         wantedPosition.Column] == RoomState.Undecided)
                     {
-                        MakeChanges(currentPlayer, savedGhost, wantedPosition);
+                        MakeChanges(currentPlayer, savedGhost, wantedPosition,
+                            GhostState.Inside);
                         validSpace = true;
                     }
                     else if (savedGhost.color == ConsoleColor.Yellow &&
@@ -92,7 +96,8 @@ namespace _18Ghosts
                         == RoomType.Yellow && board.state[wantedPosition.Row,
                         wantedPosition.Column] == RoomState.Undecided)
                     {
-                        MakeChanges(currentPlayer, savedGhost, wantedPosition);
+                        MakeChanges(currentPlayer, savedGhost, wantedPosition,
+                            GhostState.Inside);
                         validSpace = true;
                     }
                     else Console.WriteLine("That position is unavailable.");
@@ -102,15 +107,15 @@ namespace _18Ghosts
             board.ChangeTurn();
         }
 
-
+        //Change state and position of a ghost
         public void MakeChanges(Player currentPlayer, Ghost savedGhost,
-            Position wantedPosition)
+            Position wantedPosition, GhostState wantedState)
         {
             for (int i = 0; i < 9; i++)
             {
                 if (currentPlayer.ghostList[i].name == savedGhost.name)
                 {
-                    currentPlayer.ghostList[i].ghostState = GhostState.Inside;
+                    currentPlayer.ghostList[i].ghostState = wantedState;
 
                     currentPlayer.ghostList[i].position.Row
                         = wantedPosition.Row;

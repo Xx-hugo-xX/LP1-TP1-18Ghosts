@@ -25,7 +25,7 @@ namespace _18Ghosts
         public Player()
         {
             //Create and initialize an array of ghosts for each player
-            
+
 
             //Define every ghost a player has from the beginning
             R1 = new Ghost("r1", ConsoleColor.Red, new Position(0, 0));
@@ -146,8 +146,14 @@ namespace _18Ghosts
         }
 
 
-
-
+        public Position GetPosition(Board board)
+        {
+            Console.WriteLine("Select a space to move (numbers on the top" +
+                " right corner)");
+            int position = Convert.ToInt32(Console.ReadLine());
+            Position desiredCoordinate = PositionForNumber(position);
+            return desiredCoordinate;
+        }
 
         public Position PositionForNumber(int position)
         {

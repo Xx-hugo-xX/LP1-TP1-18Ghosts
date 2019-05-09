@@ -49,9 +49,6 @@ namespace _18Ghosts
                             ghostRespawn.Respawn(board, p2, p1);
                     }
                 }
-                p1.UpdateLists();
-                p2.UpdateLists();
-
                 board.ChangeTurn();
             }
         }

@@ -24,8 +24,7 @@ namespace _18Ghosts
         public Player()
         {
             //Create and initialize an array of ghosts for each player
-            Ghost[] ghostList = new Ghost[9];
-
+            
 
             //Define every ghost a player has from the beginning
             R1 = new Ghost("r1", ConsoleColor.Red, new Position(0, 0));
@@ -38,7 +37,13 @@ namespace _18Ghosts
             Y2 = new Ghost("y2", ConsoleColor.Yellow, new Position(0, 0));
             Y3 = new Ghost("y3", ConsoleColor.Yellow, new Position(0, 0));
 
-            //Add ghosts to the array
+            ghostList = GetGhostList();
+        }
+
+        public Ghost[] GetGhostList()
+        {
+            Ghost[] ghostList = new Ghost[9];
+
             ghostList[0] = R1;
             ghostList[1] = R2;
             ghostList[2] = R3;
@@ -48,35 +53,25 @@ namespace _18Ghosts
             ghostList[6] = Y1;
             ghostList[7] = Y2;
             ghostList[8] = Y3;
+
+            return ghostList;
         }
 
 
-        public void UpdateLists()
+        public Ghost[] InsideGhostUpdate()
         {
             int insideCounter = 0;
-            int runawayCounter = 0;
-            int lockedCounter = 0;
             int insideAdding = 0;
-            int runawayAdding = 0;
-            int lockedAdding = 0;
 
             // Checks how many ghosts are on each list
             for (int i = 0; i < 9; i++)
             {
                 if (ghostList[i].ghostState == GhostState.Inside)
                     insideCounter++;
-
-                else if (ghostList[i].ghostState == GhostState.Runaway)
-                    runawayCounter++;
-
-                else
-                    lockedCounter++;
             }
 
             // Creates a new list of ghosts with the right size for each list
             Ghost[] insideGhosts = new Ghost[insideCounter];
-            Ghost[] runawayGhosts = new Ghost[runawayCounter];
-            Ghost[] lockedGhosts = new Ghost[lockedCounter];
 
             //Adiciona cada fantasma à lista devida
             for (int i = 0; i < 9; i++)
@@ -86,19 +81,65 @@ namespace _18Ghosts
                     insideGhosts[insideAdding] = ghostList[i];
                     insideAdding++;
                 }
-                else if (ghostList[i].ghostState == GhostState.Runaway)
+            }
+            return insideGhosts;
+        }
+
+
+        public Ghost[] RunawayGhostUpdate()
+        {
+            int runawayCounter = 0;
+            int runawayAdding = 0;
+
+            // Checks how many ghosts are on each list
+            for (int i = 0; i < 9; i++)
+            {
+                if (ghostList[i].ghostState == GhostState.Runaway)
+                    runawayCounter++;
+            }
+            // Creates a new list of ghosts with the right size for each list
+            Ghost[] runawayGhosts = new Ghost[runawayCounter];
+
+            //Adiciona cada fantasma à lista devida
+            for (int i = 0; i < 9; i++)
+            {
+                if (ghostList[i].ghostState == GhostState.Runaway)
                 {
                     runawayGhosts[runawayAdding] = ghostList[i];
                     runawayAdding++;
                 }
-                else
+            }
+            return runawayGhosts;
+        }
+
+
+        public Ghost[] LockedGhostUpdate()
+        {
+            int lockedCounter = 0;
+            int lockedAdding = 0;
+
+            // Checks how many ghosts are on the list
+            for (int i = 0; i < 9; i++)
+            {
+                if (ghostList[i].ghostState == GhostState.Locked)
+                    lockedCounter++;
+            }
+
+            // Creates a new list of ghosts with the right size
+            Ghost[] lockedGhosts = new Ghost[lockedCounter];
+
+            //Adiciona cada fantasma à lista devida
+            for (int i = 0; i < 9; i++)
+            {
+                if (ghostList[i].ghostState == GhostState.Locked)
                 {
                     lockedGhosts[lockedAdding] = ghostList[i];
                     lockedAdding++;
                 }
             }
-
+            return lockedGhosts;
         }
+
 
 
 

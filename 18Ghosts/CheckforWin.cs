@@ -19,9 +19,7 @@ namespace _18Ghosts
         {
             if (CheckForWin(p1)) return RoomState.P1;
             if (CheckForWin(p2)) return RoomState.P2;
-
-            return RoomState.Undecided; //Ainda niguem ganhou e o estado está 
-            //undecided
+            else return RoomState.Undecided;
         }
 
 

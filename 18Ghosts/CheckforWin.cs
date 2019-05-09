@@ -28,41 +28,24 @@ namespace _18Ghosts
         public bool CheckForWin(Player player)
         {
             bool won = false;
-            
-            Ghost[] ghostRunAway = new Ghost[9]; // creates a new array that 
-                                                //saves the ghost who run away
-
-            int runAwayCounter = 0;
-
-            for (int i = 0; i < 9; i++)
-            {
-                GhostState state = player.ghostList[i].ghostState;
-                
-                //adding to the array the ghosts 
-                if (state == GhostState.Runaway) 
-                {
-                    ghostRunAway[runAwayCounter] = player.ghostList[i];
-                    runAwayCounter++;
-                }
-            }
 
             //verifying color 
             bool redOut = false;
             bool blueOut = false;
             bool yellowOut = false;
 
-            for (int i = 0; i < runAwayCounter; i++)
+            for (int i = 0; i < player.runawayGhosts.Length; i++)
             {
-                if (ghostRunAway[i].color == ConsoleColor.Red)
+                if (player.runawayGhosts[i].color == ConsoleColor.Red)
                 {
                     redOut = true;
                    
                 }
-                else if (ghostRunAway[i].color == ConsoleColor.Blue)
+                else if (player.runawayGhosts[i].color == ConsoleColor.Blue)
                 {
                     blueOut = true;
                 }
-                else if (ghostRunAway[i].color == ConsoleColor.Yellow)
+                else if (player.runawayGhosts[i].color == ConsoleColor.Yellow)
                 {
                     yellowOut = true;
                 }

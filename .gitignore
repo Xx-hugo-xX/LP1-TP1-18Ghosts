@@ -260,5 +260,9 @@ paket-files/
 __pycache__/
 *.pyc
 
-#ignoring doxyfile
-tentativa1/
+#ignoring folder named 'DoxyFile'
+/DoxyFile
+
+
+#ignoring folder named 'DoxyFileTrash'
+/DoxyFileTrash
